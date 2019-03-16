@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/companyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="50dp"
+            android:text="Company"  />
+
+        <EditText
+            android:id="@+id/company_name_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_toEndOf="@+id/companyLabel"
+            android:layout_toRightOf="@+id/companyLabel"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name" />
+
+        <TextView
+            android:id="@+id/companyTypeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/companyLabel"
+            android:layout_marginTop="15dp"
+            android:text="Type" />
+
+        <Spinner
+            android:id="@+id/company_type_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/companyTypeLabel"
+            android:layout_below="@+id/company_name_input"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="15dp" />
+
+        <TextView
+            android:id="@+id/addressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/companyTypeLabel"
+            android:text="Address"
+            android:layout_marginTop="30dp"/>
+
+        <Button
+            android:id="@+id/select_address_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/addressLabel"
+            android:layout_below="@+id/company_type_spinner"
+            android:onClick="launch_adresses_activity"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Select Address" />
+
+        <TextView
+            android:id="@+id/address1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/addressLabel"
+            android:text="Address 1"
+            android:layout_marginTop="35dp"/>
+
+        <TextView
+            android:id="@+id/address1Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/address1Label"
+            android:layout_below="@+id/select_address_button"
+            android:text="Address 1"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/contactLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/address1Label"
+            android:text="Primary Contact"
+            android:layout_marginTop="30dp"/>
+
+        <Button
+            android:id="@+id/select_contact_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/contactLabel"
+            android:layout_below="@+id/address1Text"
+            android:onClick="launch_contacts_activity"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Select Contact" />
+
+        <TextView
+            android:id="@+id/contact1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/contactLabel"
+            android:text="Contact Name"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/contact1Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/contact1Label"
+            android:layout_below="@+id/select_contact_button"
+            android:text="Contact Name"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="26dp"/>
+
+        <TextView
+            android:id="@+id/phoneLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/contact1Label"
+            android:layout_marginTop="25dp"
+            android:text="Phone"  />
+
+        <EditText
+            android:id="@+id/phone_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/phoneLabel"
+            android:layout_below="@+id/contact1Text"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Phone" />
+
+        <TextView
+            android:id="@+id/faxLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/phoneLabel"
+            android:layout_marginTop="35dp"
+            android:text="Fax"  />
+
+        <EditText
+            android:id="@+id/fax_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/faxLabel"
+            android:layout_below="@+id/phone_input"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Fax" />
+
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/companyLabel"
+            android:layout_alignStart="@+id/companyLabel"
+            android:layout_below="@+id/faxLabel"
+            android:layout_marginTop="35dp"
+            android:text="Email"  />
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/emailLabel"
+            android:layout_below="@+id/fax_input"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Email" />
+
+    </RelativeLayout>
+</ScrollView>
+</android.support.constraint.ConstraintLayout>
