@@ -181,7 +181,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
         fax_input.setText(company.getFax_number());
         email_input.setText(company.getEmail_address());
     }
-5255525545
+
     private void newCompany(){
         if(company == null) company = new Company();
         company.setId(0);
