@@ -7,9 +7,9 @@ import com.mayps.reidatasystem.Utils.Constants;
 
 public class CompanyTypeProvider extends DataProvider {
     private static CompanyTypeProvider sInstance;
-    private static String AUTHORITY = "com.mayps.reidatasystem.Dal.CompanyTypeProvider";
+    private static String AUTHORITY = "com.mayps.reidatasystem.DAL.CompanyTypeProvider";
     private Uri content_uri = Uri.parse("content://" + AUTHORITY);
-    private static String _table = Constants.COMPANIES_TABLE;
+    private static String _table = Constants.COMPANY_TYPES_TABLE;
     private static String[] _allColumns = Constants.COMPANY_TYPE_COLUMNS;
     private UriMatcher uriMatcher  = new UriMatcher(UriMatcher.NO_MATCH);
 

@@ -23,4 +23,11 @@
     <string name="menu_delete">Delete</string>
     <string name="title_activity_companies">CompaniesActivity</string>
     <string name="title_activity_company_detail">CompanyDetailActivity</string>
+    <string name="title_activity_addresses">AddressesActivity</string>
+    <string name="title_activity_address_detail">AddressDetail</string>
+    <string name="title_activity_contacts">Contacts</string>
+    <string name="title_activity_contact_detail">ContactDetailActivity</string>
+    <string name="title_activity_property">PropertyActivity</string>
+    <string name="title_activity_properties">PropertiesActivity</string>
+    <string name="title_activity_property_detail">PropertyDetailActivity</string>
 </resources>

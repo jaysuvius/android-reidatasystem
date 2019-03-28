@@ -8,7 +8,7 @@ import com.mayps.reidatasystem.Utils.Constants;
 public class AddressProvider extends DataProvider {
 
     private static AddressProvider sInstance;
-    private static String AUTHORITY = "com.mayps.reidatasystem.Dal.AddressProvider";
+    private static String AUTHORITY = "com.mayps.reidatasystem.DAL.AddressProvider";
     private Uri content_uri = Uri.parse("content://" + AUTHORITY);
     private static String _table = Constants.ADDRESS_TABLE;
     private static String[] _allColumns = Constants.ADDRESS_COLUMNS;

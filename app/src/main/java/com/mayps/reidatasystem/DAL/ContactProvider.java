@@ -8,7 +8,7 @@ import com.mayps.reidatasystem.Utils.Constants;
 public class ContactProvider extends DataProvider {
 
     private static ContactProvider sInstance;
-    private static String AUTHORITY = "com.mayps.reidatasystem.Dal.ContactProvider";
+    private static String AUTHORITY = "com.mayps.reidatasystem.DAL.ContactProvider";
     private Uri content_uri = Uri.parse("content://" + AUTHORITY);
     private static String _table = Constants.CONTACTS_TABLE;
     private static String[] _allColumns = Constants.CONTACT_COLUMNS;

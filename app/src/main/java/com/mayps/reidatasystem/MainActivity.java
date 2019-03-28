@@ -1,5 +1,6 @@
 package com.mayps.reidatasystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -52,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launch_companies_activity(View view){
-
+        Intent intent = new Intent(this, CompaniesActivity.class);
+        startActivity(intent);
     }
 
     public void launch_contacts_activity(View view){

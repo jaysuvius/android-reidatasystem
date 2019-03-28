@@ -19,20 +19,23 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-//        db.execSQL(Constants.TERMS_TABLE_CREATE);
-//        db.execSQL(Constants.COURSES_TABLE_CREATE);
-//        db.execSQL(Constants.ASSESSMENTS_TABLE_CREATE);
-//        db.execSQL(Constants.NOTES_TABLE_CREATE);
-//        db.execSQL(Constants.IMAGES_TABLE_CREATE);
-//        db.execSQL(Constants.MENTORS_TABLE_CREATE);
+        db.execSQL(Constants.ADDRESS_TABLE_CREATE);
+        db.execSQL(Constants.COMPANIES_TABLE_CREATE);
+        db.execSQL(Constants.CONTACTS_TABLE_CREATE);
+        db.execSQL(Constants.PROPERTIES_TABLE_CREATE);
+        db.execSQL(Constants.IMAGES_TABLE_CREATE);
+        db.execSQL(Constants.REPAIRS_TABLE_CREATE);
+        db.execSQL(Constants.REPAIR_TYPES_TABLE_CREATE);
+        db.execSQL(Constants.MULTI_UNITS_TABLE_CREATE);
+        db.execSQL(Constants.COMPANY_TYPES_TABLE_CREATE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + Constants.ADDRESS_TABLE);
-        db.execSQL(Constants.TERMS_TABLE_CREATE);
+        db.execSQL(Constants.ADDRESS_TABLE_CREATE);
         db.execSQL("DROP TABLE IF EXISTS " + Constants.PROPERTY_TABLE);
-        db.execSQL(Constants.PROPERTYS_TABLE_CREATE);
+        db.execSQL(Constants.PROPERTIES_TABLE_CREATE);
         db.execSQL("DROP TABLE IF EXISTS " + Constants.CONTACTS_TABLE);
         db.execSQL(Constants.CONTACTS_TABLE_CREATE);
         db.execSQL("DROP TABLE IF EXISTS " + Constants.COMPANIES_TABLE);

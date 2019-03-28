@@ -14,6 +14,69 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PropertyDetailActivity"
+            android:label="@string/title_activity_property_detail"
+            android:parentActivityName=".PropertiesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.PropertiesActivity" />
+        </activity>
+        <activity
+            android:name=".PropertiesActivity"
+            android:label="@string/title_activity_properties"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.MainActivity" />
+        </activity>
+        <activity
+            android:name=".PropertyActivity"
+            android:label="@string/title_activity_property"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ContactDetailActivity"
+            android:label="@string/title_activity_contact_detail"
+            android:parentActivityName=".Contacts"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.Contacts" />
+        </activity>
+        <activity
+            android:name=".Contacts"
+            android:label="@string/title_activity_contacts"
+            android:parentActivityName=".CompanyDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.CompanyDetailActivity" />
+        </activity>
+        <activity
+            android:name=".AddressDetail"
+            android:label="@string/title_activity_address_detail"
+            android:parentActivityName=".AddressesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.AddressesActivity" />
+        </activity>
+        <activity
+            android:name=".AddressesActivity"
+            android:label="@string/title_activity_addresses"
+            android:parentActivityName=".CompanyDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.CompanyDetailActivity" />
+        </activity>
+        <activity
             android:name=".CompanyDetailActivity"
             android:label="@string/title_activity_company_detail"
             android:parentActivityName=".CompaniesActivity"
@@ -41,6 +104,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".DAL.CompanyProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.CompanyProvider"
+            android:exported="false" />
+        <provider
+            android:name=".DAL.AddressProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.AddressProvider"
+            android:exported="false" />
+        <provider
+            android:name=".DAL.CompanyTypeProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.CompanyTypeProvider"
+            android:exported="false" />
+        <provider
+            android:name=".DAL.ContactProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.ContactProvider"
+            android:exported="false" />
+        <provider
+            android:name=".DAL.PropertyProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.PropertyProvider"
+            android:exported="false" />
+        <provider
+            android:name=".DAL.RepairProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.RepairProvider"
+            android:exported="false" />
+        <provider
+            android:name=".DAL.RepairTypeProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.RepairTypeProvider"
+            android:exported="false" />
+        <provider
+            android:name=".DAL.UnitProvider"
+            android:authorities="com.mayps.reidatasystem.DAL.UnitProvider"
+            android:exported="false" />
     </application>
 
 </manifest>

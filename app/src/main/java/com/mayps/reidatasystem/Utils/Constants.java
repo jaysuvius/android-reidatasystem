@@ -12,7 +12,7 @@ public class Constants {
     public static final String ADDRESS_COUNTY = "County";
     public static final String ADDRESS_SORT_COLUMN = "Address1";
 
-    public static String TERMS_TABLE_CREATE = "CREATE TABLE " + ADDRESS_TABLE + " (" +
+    public static String ADDRESS_TABLE_CREATE = "CREATE TABLE " + ADDRESS_TABLE + " (" +
             ADDRESS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             ADDRESS_1 +" TEXT, " +
             ADDRESS_2 + " TEXT," +
@@ -26,6 +26,7 @@ public class Constants {
     
     public static String PROPERTY_TABLE = "Properties";
     public static final String PROPERTY_ID = "_id";
+    public static final String PROPERTY_NAME = "PropertyName";
     public static final String PROPERTY_ADDRESS_ID = "AddressId";
     public static final String PROPERTY_STYLE = "Style";
     public static final String PROPERTY_SQFT = "SqFt";
@@ -81,8 +82,9 @@ public class Constants {
     public static final String PROPERTY_SORT_COLUMN = "LikelyPurchase";
 
 
-    public static String PROPERTYS_TABLE_CREATE = "CREATE TABLE " + PROPERTY_TABLE + " (" +
+    public static String PROPERTIES_TABLE_CREATE = "CREATE TABLE " + PROPERTY_TABLE + " (" +
             PROPERTY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            PROPERTY_NAME + " TEXT, " +
             PROPERTY_ADDRESS_ID + " INTEGER, " +
             PROPERTY_STYLE + " TEXT, " +
             PROPERTY_SQFT + " INTEGER, " +
@@ -139,6 +141,7 @@ public class Constants {
 
     public static String[] PROPERTY_COLUMNS = {PROPERTY_ID,
             PROPERTY_ADDRESS_ID,
+            PROPERTY_NAME,
             PROPERTY_STYLE,
             PROPERTY_SQFT,
             PROPERTY_LOT_SIZE,
@@ -315,7 +318,6 @@ public class Constants {
             MULTI_UNIT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             MULTI_UNIT_PROPERTY_ID + " INTEGER, " +
             MULTI_UNIT_UNIT_NUMBER  + " TEXT, " +
-            MULTI_UNIT_UNIT_NUMBER + " TEXT, " +
             MULTI_UNIT_SQ_FT + " INTEGER, " +
             MULTI_UNIT_BEDROOM_COUNT + " INTEGER, " +
             MULTI_UNIT_BATHROOM_COUNT + " INTEGER, " +
@@ -347,7 +349,7 @@ public class Constants {
 
     public static String[] REPAIR_TYPE_COLUMNS = {REPAIR_TYPE_ID, REPAIR_TYPE_DESCRIPTION};
 
-    public static String COMPANY_TYPES_TABLE = "CompanyTypeS";
+    public static String COMPANY_TYPES_TABLE = "CompanyTypes";
     public static final String COMPANY_TYPES_ID = "_id";
     public static final String COMPANY_TYPE_DESCRIPTION = "CompanyTypeDescription";
     public static final String COMPANY_TYPE_SORT_COLUMN = "CompanyTypeDescription";
@@ -357,7 +359,7 @@ public class Constants {
             COMPANY_TYPE_DESCRIPTION +" TEXT " +
             ")";
 
-    public static String[] COMPANY_TYPE_COLUMNS = {COMPANY_TYPE_ID, COMPANY_TYPE_DESCRIPTION};
+    public static String[] COMPANY_TYPE_COLUMNS = {COMPANY_TYPES_ID, COMPANY_TYPE_DESCRIPTION};
 
 
 
@@ -377,6 +379,9 @@ public class Constants {
 
     public static String[] IMAGE_COLUMNS = {IMAGE_ID, IMAGE_COURSE_ID, IMAGE_ASSESSMENT_ID, IMAGE};
 
+    public static String INSERT_COMPANY_TYPES = "INSERT INTO " + COMPANY_TYPES_TABLE + " (" + COMPANY_TYPE_DESCRIPTION + ") VALUES (Realtor), (Broker), (Title), (Contractor), (PML), (Hard Money), (Bank), (Mortgage)";
+
+    public static String INSERT_REPAIR_TYPES = "INSERT INTO " + REPAIR_TYPES_TABLE + " (" + REPAIR_OTHER_DESCRIPTION + ") VALUES (Realtor), (Broker), (Title), (Contractor), (PML), (Hard Money), (Bank), (Mortgage)";
 
 
 }

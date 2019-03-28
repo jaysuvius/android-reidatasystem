@@ -38,6 +38,7 @@ public class PropertyController extends AbstractController {
     protected Property parse(Cursor propertyCursor) {
         return new Property(propertyCursor.getLong(propertyCursor.getColumnIndex(Constants.PROPERTY_ID)),
                 propertyCursor.getLong(propertyCursor.getColumnIndex(Constants.PROPERTY_ADDRESS_ID)),
+                propertyCursor.getString(propertyCursor.getColumnIndex(Constants.PROPERTY_NAME)),
                 propertyCursor.getString(propertyCursor.getColumnIndex(Constants.PROPERTY_STYLE)),
                 propertyCursor.getInt(propertyCursor.getColumnIndex(Constants.PROPERTY_SQFT)),
                 propertyCursor.getInt(propertyCursor.getColumnIndex(Constants.PROPERTY_LOT_SIZE)),
@@ -96,6 +97,7 @@ public class PropertyController extends AbstractController {
         Property property = (Property) entity;
         cv.put(Constants.PROPERTY_ID, property.getId());
         cv.put(Constants.PROPERTY_ADDRESS_ID, property.getAddress_id());
+        cv.put(Constants.PROPERTY_NAME, property.getProperty_name());
         cv.put(Constants.PROPERTY_STYLE, property.getStyle());
         cv.put(Constants.PROPERTY_SQFT, property.getSq_ft());
         cv.put(Constants.PROPERTY_LOT_SIZE, property.getLot_size());
@@ -154,6 +156,7 @@ public class PropertyController extends AbstractController {
         ContentValues cv = new ContentValues();
         Property property = (Property) entity;
         cv.put(Constants.PROPERTY_ADDRESS_ID, property.getAddress_id());
+        cv.put(Constants.PROPERTY_NAME, property.getProperty_name());
         cv.put(Constants.PROPERTY_STYLE, property.getStyle());
         cv.put(Constants.PROPERTY_SQFT, property.getSq_ft());
         cv.put(Constants.PROPERTY_LOT_SIZE, property.getLot_size());

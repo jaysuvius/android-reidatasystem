@@ -7,6 +7,7 @@ import java.util.Date;
 public class Property extends Entity implements iEntity {
 
     private long address_id;
+    private String property_name;
     private String style;
     private int sq_ft;
     private int lot_size;
@@ -58,7 +59,7 @@ public class Property extends Entity implements iEntity {
     private double offer_1;
     private double offer_2;
 
-    public Property(long address_id, String style, int sq_ft, int lot_size, int is_multi_unit, int year_built, double hoa_fees, int is_occupied,
+    public Property(long address_id, String property_name, String style, int sq_ft, int lot_size, int is_multi_unit, int year_built, double hoa_fees, int is_occupied,
                     int is_owner_occupied, String special_features, String upgrades, int is_listed, String listing_date, int has_other_offers,
                     double offer_amount, String realtor, String realtor_phone, String reason_for_selling, String time_frame, String no_sell_contingency, 
                     double mortgage_amount, int has_liens, int has_multiple_mortgages, int is_payment_current, int months_behind, double amount_behind, 
@@ -67,6 +68,7 @@ public class Property extends Entity implements iEntity {
                     int is_flexible, String how_price_derived, double best_price_cash_fast_close, double absolute_bottom_price, int will_subject_to, 
                     int can_accept_quickly, String evaluator, double arv, double repair_cost, int likely_purchase, String exit_strategy, double offer_1, double offer_2) {
         this.address_id = address_id;
+        this.property_name = property_name;
         this.style = style;
         this.sq_ft = sq_ft;
         this.lot_size = lot_size;
@@ -119,7 +121,7 @@ public class Property extends Entity implements iEntity {
         this.offer_2 = offer_2;
     }
 
-    public Property(long id, long address_id, String style, int sq_ft, int lot_size, int is_multi_unit, int year_built, double hoa_fees, int is_occupied, 
+    public Property(long id, long address_id, String property_name, String style, int sq_ft, int lot_size, int is_multi_unit, int year_built, double hoa_fees, int is_occupied,
                     int is_owner_occupied, String special_features, String upgrades, int is_listed, String listing_date, int has_other_offers, double offer_amount,
                     String realtor, String realtor_phone, String reason_for_selling, String time_frame, String no_sell_contingency, double mortgage_amount, int has_liens,
                     int has_multiple_mortgages, int is_payment_current, int months_behind, double amount_behind, double back_taxes, double other_lien_amount,
@@ -129,6 +131,7 @@ public class Property extends Entity implements iEntity {
                     double repair_cost, int likely_purchase, String exit_strategy, double offer_1, double offer_2) {
         super.setId(id);
         this.address_id = address_id;
+        this.property_name = property_name;
         this.style = style;
         this.sq_ft = sq_ft;
         this.lot_size = lot_size;
@@ -188,6 +191,14 @@ public class Property extends Entity implements iEntity {
 
     public void setAddress_id(long address_id) {
         this.address_id = address_id;
+    }
+
+    public String getProperty_name() {
+        return property_name;
+    }
+
+    public void setProperty_name(String property_name) {
+        this.property_name = property_name;
     }
 
     public String getStyle() {

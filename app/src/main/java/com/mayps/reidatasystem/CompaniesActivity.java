@@ -77,7 +77,9 @@ public class CompaniesActivity extends AppCompatActivity {
     }
 
     public void launch_company_detail(long id){
-
+        Intent intent = new Intent(this, CompanyDetailActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {

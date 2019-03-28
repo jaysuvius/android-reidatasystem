@@ -8,7 +8,7 @@ import com.mayps.reidatasystem.Utils.Constants;
 public class CompanyProvider extends DataProvider {
 
     private static CompanyProvider sInstance;
-    private static String AUTHORITY = "com.mayps.reidatasystem.Dal.CompanyProvider";
+    private static String AUTHORITY = "com.mayps.reidatasystem.DAL.CompanyProvider";
     private Uri content_uri = Uri.parse("content://" + AUTHORITY);
     private static String _table = Constants.COMPANIES_TABLE;
     private static String[] _allColumns = Constants.COMPANY_COLUMNS;

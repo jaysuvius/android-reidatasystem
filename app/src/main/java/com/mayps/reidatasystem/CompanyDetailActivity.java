@@ -103,22 +103,14 @@ public class CompanyDetailActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        company_name_input = findViewById(R.id.company_name_input);
-        company_type_spinner = findViewById(R.id.company_type_spinner);
-        select_address_button = findViewById(R.id.select_address_button);
-        address1TextView = findViewById(R.id.address1Text);
-        select_contact_button = findViewById(R.id.select_contact_button);
-        contact1Text = findViewById(R.id.contact1Text);
-        phone_input = findViewById(R.id.phone_input);
-        fax_input = findViewById(R.id.fax_input);
-        email_input = findViewById(R.id.email_input);
+        setup_inputs();
 
         ctc = new CompanyTypeController(getApplicationContext());
         List<CompanyType> types = ctc.getAll();
 
         ctAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, types);
 
-        company_type_spinner.setAdapter(ctAdapter);
+        //company_type_spinner.setAdapter(ctAdapter);
 
         cc = new CompanyController(getApplicationContext());
 
@@ -142,6 +134,28 @@ public class CompanyDetailActivity extends AppCompatActivity {
 
     }
 
+    private void setup_inputs(){
+        company_name_input = findViewById(R.id.company_name_input);
+        company_type_spinner = findViewById(R.id.company_type_spinner);
+        select_address_button = findViewById(R.id.select_address_button);
+        select_address_button.setOnClickListener(v -> launch_addresses());
+        address1TextView = findViewById(R.id.address1Text);
+        select_contact_button = findViewById(R.id.select_contact_button);
+        select_contact_button.setOnClickListener((v)-> launch_contacts());
+        contact1Text = findViewById(R.id.contact1Text);
+        phone_input = findViewById(R.id.phone_input);
+        fax_input = findViewById(R.id.fax_input);
+        email_input = findViewById(R.id.email_input);
+    }
+
+    private void launch_addresses(){
+
+    }
+
+    private void launch_contacts() {
+        
+    }
+
     private void fetch_company(){
         id = company.getId();
         company_name_input.setText(company.getCompany_name());
@@ -153,17 +167,21 @@ public class CompanyDetailActivity extends AppCompatActivity {
         Uri addyUri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + addressId);
         ac = new AddressController(getApplicationContext());
         address = (Address)ac.getById(addyUri);
-        address1TextView.setText(address.getAddress_1());
+        if (address != null){
+            address1TextView.setText(address.getAddress_1());
+        }
         contactId = company.getPrimary_contact_id();
         conc = new ContactController(getApplicationContext());
         Uri conUri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + contactId);
         contact = (Contact) conc.getById(conUri);
-        contact1Text.setText(contact.getFirst_name() + " " + contact.getLast_name());
+        if(contact != null){
+            contact1Text.setText(contact.getFirst_name() + " " + contact.getLast_name());
+        }
         phone_input.setText(company.getPhone_number());
         fax_input.setText(company.getFax_number());
         email_input.setText(company.getEmail_address());
     }
-
+5255525545
     private void newCompany(){
         if(company == null) company = new Company();
         company.setId(0);
