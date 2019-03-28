@@ -14,6 +14,42 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".UnitDetailActivity"
+            android:label="@string/title_activity_unit_detail"
+            android:parentActivityName=".UnitActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.UnitActivity" />
+        </activity>
+        <activity
+            android:name=".UnitActivity"
+            android:label="@string/title_activity_unit"
+            android:parentActivityName=".PropertyDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.PropertyDetailActivity" />
+        </activity>
+        <activity
+            android:name=".RepairDetailActivity"
+            android:label="@string/title_activity_repair_detail"
+            android:parentActivityName=".RepairActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.RepairActivity" />
+        </activity>
+        <activity
+            android:name=".RepairActivity"
+            android:label="@string/title_activity_repair"
+            android:parentActivityName=".PropertyDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.PropertyDetailActivity" />
+        </activity>
+        <activity
             android:name=".PropertyDetailActivity"
             android:label="@string/title_activity_property_detail"
             android:parentActivityName=".PropertiesActivity"

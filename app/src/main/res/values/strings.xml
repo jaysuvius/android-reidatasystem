@@ -30,4 +30,8 @@
     <string name="title_activity_property">PropertyActivity</string>
     <string name="title_activity_properties">PropertiesActivity</string>
     <string name="title_activity_property_detail">PropertyDetailActivity</string>
+    <string name="title_activity_repair">RepairActivity</string>
+    <string name="title_activity_repair_detail">RepairDetailActivity</string>
+    <string name="title_activity_unit">UnitActivity</string>
+    <string name="title_activity_unit_detail">UnitDetailActivity</string>
 </resources>
