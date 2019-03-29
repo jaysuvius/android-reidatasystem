@@ -166,7 +166,7 @@
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/workPhoneLabel"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:text="Work Phone" />
 
         <TextView
