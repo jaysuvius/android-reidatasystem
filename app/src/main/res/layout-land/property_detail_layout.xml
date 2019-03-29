@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="55dp">
+
+        <TextView
+            android:id="@+id/propertyNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="50dp"
+            android:text="Property Name" />
+
+        <EditText
+            android:id="@+id/property_name_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/propertyNameLabel"
+            android:layout_toRightOf="@+id/propertyNameLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Property Name" />
+
+        <TextView
+            android:id="@+id/styleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/propertyNameLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="Style" />
+
+        <EditText
+            android:id="@+id/style_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/property_name_input"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/styleLabel"
+            android:layout_toRightOf="@+id/styleLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Style" />
+
+        <TextView
+            android:id="@+id/sqftLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/styleLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="SqFt" />
+
+        <EditText
+            android:id="@+id/sqft_input"
+            android:layout_width="20pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/style_input"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/styleLabel"
+            android:layout_toRightOf="@+id/styleLabel"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="99.9" />
+
+        <TextView
+            android:id="@+id/lotSizeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/styleLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/sqft_input"
+            android:layout_toRightOf="@+id/sqft_input"
+            android:text="Lot Size" />
+
+        <EditText
+            android:id="@+id/lot_size_input"
+            android:layout_width="20pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/style_input"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/lotSizeLabel"
+            android:layout_toRightOf="@+id/lotSizeLabel"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="99.9" />
+
+        <TextView
+            android:id="@+id/yearBuiltLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sqftLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Year" />
+
+        <EditText
+            android:id="@+id/year_built_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sqft_input"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/yearBuiltLabel"
+            android:layout_toRightOf="@+id/yearBuiltLabel"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="99.9" />
+
+        <TextView
+            android:id="@+id/hoaFeesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lotSizeLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/year_built_input"
+            android:layout_toRightOf="@+id/yearBuiltLabel"
+            android:text="Hoa Fees" />
+
+        <EditText
+            android:id="@+id/hoa_fees_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lot_size_input"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/hoaFeesLabel"
+            android:layout_toRightOf="@+id/hoaFeesLabel"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="99.9" />
+
+        <CheckBox
+            android:id="@+id/multi_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hoaFeesLabel"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginTop="35dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Is Multi" />
+
+        <CheckBox
+            android:id="@+id/is_occupied_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hoaFeesLabel"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/multi_checkbox"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Occupied" />
+
+        <CheckBox
+            android:id="@+id/owner_occupied_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hoaFeesLabel"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/is_occupied_checkbox"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Owner Occupied" />
+
+        <TextView
+            android:id="@+id/specialFeaturesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_occupied_checkbox"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="50dp"
+            android:text="Features" />
+
+        <EditText
+            android:id="@+id/special_features_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/multi_checkbox"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/specialFeaturesLabel"
+            android:layout_toRightOf="@+id/specialFeaturesLabel"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:scrollbars="vertical"
+            android:text="Sizzle" />
+
+        <TextView
+            android:id="@+id/upgradesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/special_features_input"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="50dp"
+            android:text="Upgrades" />
+
+        <EditText
+            android:id="@+id/upgrades_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/special_features_input"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/upgradesLabel"
+            android:layout_toRightOf="@+id/upgradesLabel"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:scrollbars="vertical"
+            android:text="Upgrades" />
+
+        <CheckBox
+            android:id="@+id/is_listed_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upgrades_input"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Listed" />
+
+        <TextView
+            android:id="@+id/listingDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upgrades_input"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/is_listed_checkbox"
+            android:layout_toRightOf="@+id/is_listed_checkbox"
+            android:text="Listing Date" />
+
+        <EditText
+            android:id="@+id/listing_date_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upgrades_input"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/listingDateLabel"
+            android:layout_toRightOf="@+id/listingDateLabel"
+            android:ems="10"
+            android:inputType="date"
+            android:text="01/01/1001" />
+
+        <CheckBox
+            android:id="@+id/other_offers_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_listed_checkbox"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Other Offers" />
+
+        <TextView
+            android:id="@+id/offerAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_listed_checkbox"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/other_offers_checkbox"
+            android:layout_toRightOf="@+id/other_offers_checkbox"
+            android:text="Offer Amount" />
+
+        <EditText
+            android:id="@+id/offer_amount_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_listed_checkbox"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/offerAmountLabel"
+            android:layout_toRightOf="@+id/offerAmountLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+        <TextView
+            android:id="@+id/realtorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/other_offers_checkbox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="Realtor" />
+
+        <EditText
+            android:id="@+id/realtor_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/other_offers_checkbox"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/realtorLabel"
+            android:layout_toRightOf="@+id/realtorLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Realtor" />
+
+        <TextView
+            android:id="@+id/realtorPhoneLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/realtorLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="Realtor Phone" />
+
+        <EditText
+            android:id="@+id/realtor_phone_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/realtorLabel"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/realtorPhoneLabel"
+            android:layout_toRightOf="@+id/realtorPhoneLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Realtor Phone" />
+
+
+        <TextView
+            android:id="@+id/reasonSellingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/realtorPhoneLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="Reason for Sale" />
+
+        <EditText
+            android:id="@+id/reason_selling_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/realtorPhoneLabel"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/reasonSellingLabel"
+            android:layout_toRightOf="@+id/reasonSellingLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Reason" />
+
+        <TextView
+            android:id="@+id/timeFrameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reasonSellingLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="Time Frame" />
+
+        <EditText
+            android:id="@+id/time_frame_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reasonSellingLabel"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/timeFrameLabel"
+            android:layout_toRightOf="@+id/timeFrameLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Reason" />
+
+        <TextView
+            android:id="@+id/noSellContLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timeFrameLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="No Sell Cont" />
+
+        <EditText
+            android:id="@+id/no_sell_cont_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timeFrameLabel"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/noSellContLabel"
+            android:layout_toRightOf="@+id/noSellContLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Contigency" />
+
+        <TextView
+            android:id="@+id/mortgageAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noSellContLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="Mortgage Amount" />
+
+        <EditText
+            android:id="@+id/mortgage_amount_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noSellContLabel"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/mortgageAmountLabel"
+            android:layout_toRightOf="@+id/mortgageAmountLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+        <CheckBox
+            android:id="@+id/has_liens_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageAmountLabel"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginTop="35dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Liens" />
+
+        <CheckBox
+            android:id="@+id/multiple_mortgages_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageAmountLabel"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/has_liens_checkbox"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Multiple Mort" />
+
+        <CheckBox
+            android:id="@+id/payment_current_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageAmountLabel"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/multiple_mortgages_checkbox"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Current" />
+
+        <TextView
+            android:id="@+id/monthsBehindLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/has_liens_checkbox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Mo Behind" />
+
+        <EditText
+            android:id="@+id/months_behind_input"
+            android:layout_width="20pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/has_liens_checkbox"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/monthsBehindLabel"
+            android:layout_toRightOf="@+id/monthsBehindLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12" />
+
+        <TextView
+            android:id="@+id/amountBehindLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/has_liens_checkbox"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/months_behind_input"
+            android:layout_toRightOf="@+id/months_behind_input"
+            android:text="Amount Behind" />
+
+        <EditText
+            android:id="@+id/amount_behind_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/has_liens_checkbox"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/amountBehindLabel"
+            android:layout_toRightOf="@+id/amountBehindLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12,000" />
+
+        <TextView
+            android:id="@+id/backTaxesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthsBehindLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Back Tax" />
+
+        <EditText
+            android:id="@+id/back_taxes_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthsBehindLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/backTaxesLabel"
+            android:layout_toRightOf="@+id/backTaxesLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12" />
+
+        <TextView
+            android:id="@+id/otherLienLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthsBehindLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/back_taxes_input"
+            android:layout_toRightOf="@+id/back_taxes_input"
+            android:text="Other Lien" />
+
+        <EditText
+            android:id="@+id/other_lien_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthsBehindLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/otherLienLabel"
+            android:layout_toRightOf="@+id/otherLienLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12,000" />
+
+        <TextView
+            android:id="@+id/monthlyPaymentLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backTaxesLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Mon Payment" />
+
+        <EditText
+            android:id="@+id/monthly_payment_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backTaxesLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/monthlyPaymentLabel"
+            android:layout_toRightOf="@+id/monthlyPaymentLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12,000" />
+
+        <TextView
+            android:id="@+id/taxAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backTaxesLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/monthly_payment_input"
+            android:layout_toRightOf="@+id/monthly_payment_input"
+            android:text="Tax Amount" />
+
+        <EditText
+            android:id="@+id/tax_amount_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backTaxesLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/taxAmountLabel"
+            android:layout_toRightOf="@+id/taxAmountLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12,000" />
+
+        <TextView
+            android:id="@+id/insuranceAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthlyPaymentLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Insurance Amt" />
+
+        <EditText
+            android:id="@+id/insurance_amount_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthlyPaymentLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/insuranceAmountLabel"
+            android:layout_toRightOf="@+id/insuranceAmountLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12,000" />
+
+        <CheckBox
+            android:id="@+id/fixed_interest_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insuranceAmountLabel"
+            android:layout_marginTop="35dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Fixed Rate" />
+
+        <TextView
+            android:id="@+id/interest1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insuranceAmountLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/fixed_interest_checkbox"
+            android:layout_toRightOf="@+id/fixed_interest_checkbox"
+            android:text="Int Rate 1" />
+
+        <EditText
+            android:id="@+id/interest_1_input"
+            android:layout_width="20pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insuranceAmountLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/interest1Label"
+            android:layout_toRightOf="@+id/interest1Label"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="5.5" />
+
+        <TextView
+            android:id="@+id/interest2Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insuranceAmountLabel"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:layout_toEndOf="@+id/interest_1_input"
+            android:layout_toRightOf="@+id/interest_1_input"
+            android:text="Int Rate 2" />
+
+        <EditText
+            android:id="@+id/interest_2_input"
+            android:layout_width="20pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/insuranceAmountLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/interest2Label"
+            android:layout_toRightOf="@+id/interest2Label"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="5.5" />
+
+        <TextView
+            android:id="@+id/paymentPenaltyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fixed_interest_checkbox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Insurance Amt" />
+
+        <EditText
+            android:id="@+id/payment_penalty_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fixed_interest_checkbox"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/paymentPenaltyLabel"
+            android:layout_toRightOf="@+id/paymentPenaltyLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12,000" />
+
+        <TextView
+            android:id="@+id/mortgageCompany1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/paymentPenaltyLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Mort Company 1" />
+
+        <EditText
+            android:id="@+id/mortgage_company_1_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/paymentPenaltyLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/mortgageCompany1Label"
+            android:layout_toRightOf="@+id/mortgageCompany1Label"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Company 1" />
+
+        <TextView
+            android:id="@+id/mortgageCompany2Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageCompany1Label"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Mort Company 2" />
+
+        <EditText
+            android:id="@+id/mortgage_company_2_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageCompany1Label"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/mortgageCompany2Label"
+            android:layout_toRightOf="@+id/mortgageCompany2Label"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Company 2" />
+
+        <TextView
+            android:id="@+id/askingPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageCompany2Label"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="30dp"
+            android:text="Asking Price" />
+
+        <EditText
+            android:id="@+id/asking_price_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageCompany2Label"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/askingPriceLabel"
+            android:layout_toRightOf="@+id/askingPriceLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="12,000" />
+
+        <CheckBox
+            android:id="@+id/flexible_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mortgageCompany2Label"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/asking_price_input"
+            android:layout_toRightOf="@+id/asking_price_input"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Flexible" />
+
+        <TextView
+            android:id="@+id/priceDerivedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/askingPriceLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Price Derived" />
+
+        <EditText
+            android:id="@+id/price_derived_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/askingPriceLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/priceDerivedLabel"
+            android:layout_toRightOf="@+id/priceDerivedLabel"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Derived" />
+
+        <TextView
+            android:id="@+id/bestPriceFastCloseLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priceDerivedLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Price Derived" />
+
+        <EditText
+            android:id="@+id/best_price_fast_close_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priceDerivedLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/bestPriceFastCloseLabel"
+            android:layout_toRightOf="@+id/bestPriceFastCloseLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+        <TextView
+            android:id="@+id/bottomPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bestPriceFastCloseLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Bottom Price" />
+
+        <EditText
+            android:id="@+id/bottom_price_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bestPriceFastCloseLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/bottomPriceLabel"
+            android:layout_toRightOf="@+id/bottomPriceLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+        <CheckBox
+            android:id="@+id/subject_to_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bottomPriceLabel"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginTop="35dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Subject To" />
+
+        <CheckBox
+            android:id="@+id/accept_quickly_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bottomPriceLabel"
+            android:layout_marginTop="35dp"
+            android:layout_toRightOf="@+id/subject_to_checkbox"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Accept Quickly" />
+
+        <TextView
+            android:id="@+id/evaluatorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subject_to_checkbox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Bottom Price" />
+
+        <EditText
+            android:id="@+id/evaluator_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/subject_to_checkbox"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/evaluatorLabel"
+            android:layout_toRightOf="@+id/evaluatorLabel"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Evaluator" />
+
+        <TextView
+            android:id="@+id/arvLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/evaluatorLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Arv" />
+
+        <EditText
+            android:id="@+id/arv_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/evaluatorLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/arvLabel"
+            android:layout_toRightOf="@+id/arvLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+        <TextView
+            android:id="@+id/repairCostLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/arvLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Repair Cost" />
+
+        <EditText
+            android:id="@+id/repair_cost_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/arvLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/repairCostLabel"
+            android:layout_toRightOf="@+id/repairCostLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+        <CheckBox
+            android:id="@+id/likely_purchase_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/repairCostLabel"
+            android:layout_alignStart="@+id/propertyNameLabel"
+            android:layout_alignLeft="@+id/propertyNameLabel"
+            android:layout_marginTop="35dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Likely Purchase" />
+
+        <TextView
+            android:id="@+id/exitStrategyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/likely_purchase_checkbox"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Exit Strategy" />
+
+        <EditText
+            android:id="@+id/exit_strategy_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/likely_purchase_checkbox"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/exitStrategyLabel"
+            android:layout_toRightOf="@+id/exitStrategyLabel"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Strategy" />
+
+        <TextView
+            android:id="@+id/offer1Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exitStrategyLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Offer 1" />
+
+        <EditText
+            android:id="@+id/offer_1_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/exitStrategyLabel"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/offer1Label"
+            android:layout_toRightOf="@+id/offer1Label"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+        <TextView
+            android:id="@+id/offer2Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/offer1Label"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="40dp"
+            android:text="Offer 2" />
+
+        <EditText
+            android:id="@+id/offer_2_input"
+            android:layout_width="100pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/offer1Label"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/offer2Label"
+            android:layout_toRightOf="@+id/offer2Label"
+            android:ems="10"
+            android:inputType="number"
+            android:text="100,000" />
+
+
+    </RelativeLayout>
+</ScrollView>
+
+</android.support.constraint.ConstraintLayout>
