@@ -8,4 +8,7 @@
     tools:context=".ContactsActivity"
     tools:showIn="@layout/activity_contacts">
 
+
+    <include layout="@layout/contacts_layout" />
+
 </android.support.constraint.ConstraintLayout>

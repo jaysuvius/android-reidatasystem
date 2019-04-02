@@ -65,6 +65,7 @@ public class ContactsActivity extends AppCompatActivity {
             launch_contact_detail(selectedItem.getId());
         });
 
+
     }
 
     public void fetch_contactes(){

@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launch_contacts_activity(View view){
-
+        Intent intent = new Intent(this, ContactsActivity.class);
+        startActivity(intent);
     }
 
     public void launch_properties_activity(View view){
