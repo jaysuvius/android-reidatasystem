@@ -8,13 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.mayps.reidatasystem.Adapters.CompanyAdapter;
 import com.mayps.reidatasystem.Controllers.CompanyController;
 import com.mayps.reidatasystem.Models.Company;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompaniesActivity extends AppCompatActivity {
@@ -71,8 +74,7 @@ public class CompaniesActivity extends AppCompatActivity {
 
         list = findViewById(R.id.companies_listview);
 
-        ArrayAdapter<Company> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, companies);
-
+        CompanyAdapter adapter = new CompanyAdapter(CompaniesActivity.this, companies);
         list.setAdapter(adapter);
     }
 
@@ -84,7 +86,7 @@ public class CompaniesActivity extends AppCompatActivity {
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        //savedInstanceState.putLong("id", t.getId());
+        //savedInstanceState.putLong("id", company_layout.getId());
     }
 
     @Override
@@ -94,3 +96,5 @@ public class CompaniesActivity extends AppCompatActivity {
     }
 
 }
+
+

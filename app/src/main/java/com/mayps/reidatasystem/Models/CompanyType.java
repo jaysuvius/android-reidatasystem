@@ -27,8 +27,6 @@ public class CompanyType extends Entity implements iEntity {
 
     @Override
     public String toString() {
-        return "CompanyType{" +
-                "company_type_description='" + company_type_description + '\'' +
-                '}';
+        return company_type_description;
     }
 }

@@ -28,6 +28,9 @@ public class DbOpenHelper extends SQLiteOpenHelper {
         db.execSQL(Constants.REPAIR_TYPES_TABLE_CREATE);
         db.execSQL(Constants.MULTI_UNITS_TABLE_CREATE);
         db.execSQL(Constants.COMPANY_TYPES_TABLE_CREATE);
+        db.execSQL(Constants.INSERT_COMPANY_TYPES);
+        db.execSQL(Constants.INSERT_REPAIR_TYPES);
+
     }
 
     @Override

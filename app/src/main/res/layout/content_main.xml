@@ -27,8 +27,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="launch_companies_activity"
         android:text="Companies"
+        app:layout_constraintBottom_toTopOf="@+id/contacts_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
@@ -37,16 +39,26 @@
         android:id="@+id/contacts_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launch_contacts_activity"
+        android:text="Contacts"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="134dp" />
+
+    <Button
+        android:id="@+id/addresses_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:onClick="launch_contacts_activity"
-        android:text="Contacts"
+        android:onClick="launch_addresses_activity"
+        android:text="Addresses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/companies_button" />
+        app:layout_constraintTop_toBottomOf="@+id/contacts_button" />
+
 
     <Button
         android:id="@+id/properties_button"
@@ -57,11 +69,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="launch_properties_activity"
         android:text="Properties"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contacts_button" />
+        app:layout_constraintTop_toBottomOf="@+id/addresses_button"
+        app:layout_constraintVertical_bias="0.018" />
 
 
 

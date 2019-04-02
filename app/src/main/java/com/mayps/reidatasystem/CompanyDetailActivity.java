@@ -29,12 +29,15 @@ import com.mayps.reidatasystem.Models.Company;
 import com.mayps.reidatasystem.Models.CompanyType;
 import com.mayps.reidatasystem.Models.Contact;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyDetailActivity extends AppCompatActivity {
 
     private EditText company_name_input;
     private Spinner company_type_spinner;
+    private Spinner address_spinner;
+    private Spinner contact_spinner;
     private Button select_address_button;
     private TextView address1TextView;
     private Button select_contact_button;
@@ -110,7 +113,18 @@ public class CompanyDetailActivity extends AppCompatActivity {
 
         ctAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, types);
 
-        //company_type_spinner.setAdapter(ctAdapter);
+        company_type_spinner.setAdapter(ctAdapter);
+
+        ac = new AddressController(getApplicationContext());
+        List<Address> addresses = ac.getAll();
+        ArrayAdapter aAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+
+        address_spinner.setAdapter(aAdapter);
+
+        conc = new ContactController(getApplicationContext());
+        List<Contact> contacts = conc.getAll();
+        ArrayAdapter conAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, contacts);
+        contact_spinner.setAdapter(conAdapter);
 
         cc = new CompanyController(getApplicationContext());
 
@@ -118,7 +132,6 @@ public class CompanyDetailActivity extends AppCompatActivity {
         id = 0;
         if (!extrasBundle.isEmpty()) {
             id = extrasBundle.getLong("id");
-            //termId = extrasBundle.getLong("termId");
         }
 
         Uri uri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + id);
@@ -137,24 +150,17 @@ public class CompanyDetailActivity extends AppCompatActivity {
     private void setup_inputs(){
         company_name_input = findViewById(R.id.company_name_input);
         company_type_spinner = findViewById(R.id.company_type_spinner);
+        address_spinner = findViewById(R.id.address_spinner);
+        contact_spinner = findViewById(R.id.contact_spinner);
         select_address_button = findViewById(R.id.select_address_button);
-        select_address_button.setOnClickListener(v -> launch_addresses());
         address1TextView = findViewById(R.id.address1Text);
         select_contact_button = findViewById(R.id.select_contact_button);
-        select_contact_button.setOnClickListener((v)-> launch_contacts());
         contact1Text = findViewById(R.id.contact1Text);
         phone_input = findViewById(R.id.phone_input);
         fax_input = findViewById(R.id.fax_input);
         email_input = findViewById(R.id.email_input);
     }
 
-    private void launch_addresses(){
-
-    }
-
-    private void launch_contacts() {
-        
-    }
 
     private void fetch_company(){
         id = company.getId();
@@ -199,6 +205,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
     private void saveCompany(){
         company.setId(id);
         company.setCompany_name(company_name_input.getText().toString());
+        company.setCompany_type(((CompanyType)company_type_spinner.getSelectedItem()).getId());
         company.setAddress_id(addressId);
         company.setPrimary_contact_id(contactId);
         company.setCompany_type(ctAdapter.getItem(company_type_spinner.getSelectedItemPosition()).getId());

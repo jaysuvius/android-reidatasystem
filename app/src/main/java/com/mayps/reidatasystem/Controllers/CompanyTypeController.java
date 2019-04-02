@@ -36,7 +36,7 @@ public class CompanyTypeController extends AbstractController {
     }
 
     protected CompanyType parse(Cursor companyTypeCursor) {
-        return new CompanyType(companyTypeCursor.getInt(companyTypeCursor.getColumnIndex(Constants.COMPANY_TYPE_ID)),
+        return new CompanyType(companyTypeCursor.getInt(companyTypeCursor.getColumnIndex(Constants.COMPANY_TYPES_ID)),
                 companyTypeCursor.getString(companyTypeCursor.getColumnIndex(Constants.COMPANY_TYPE_DESCRIPTION)));
     }
 

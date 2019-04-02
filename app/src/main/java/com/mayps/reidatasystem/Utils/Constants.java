@@ -379,9 +379,9 @@ public class Constants {
 
     public static String[] IMAGE_COLUMNS = {IMAGE_ID, IMAGE_COURSE_ID, IMAGE_ASSESSMENT_ID, IMAGE};
 
-    public static String INSERT_COMPANY_TYPES = "INSERT INTO " + COMPANY_TYPES_TABLE + " (" + COMPANY_TYPE_DESCRIPTION + ") VALUES (Realtor), (Broker), (Title), (Contractor), (PML), (Hard Money), (Bank), (Mortgage)";
+    public static String INSERT_COMPANY_TYPES = "INSERT INTO " + COMPANY_TYPES_TABLE + " (" + COMPANY_TYPE_DESCRIPTION + ") VALUES ('Realtor'), ('Broker'), ('Title'), ('Contractor'), ('PML'), ('Hard Money'), ('Bank'), ('Mortgage')";
 
-    public static String INSERT_REPAIR_TYPES = "INSERT INTO " + REPAIR_TYPES_TABLE + " (" + REPAIR_OTHER_DESCRIPTION + ") VALUES (Realtor), (Broker), (Title), (Contractor), (PML), (Hard Money), (Bank), (Mortgage)";
+    public static String INSERT_REPAIR_TYPES = "INSERT INTO " + REPAIR_TYPES_TABLE + " (" + REPAIR_TYPE_DESCRIPTION + ") VALUES ('Roof'), ('Gutters'), ('Finish'), ('Masonry'), ('Painting'), ('Windows'), ('Garage'), ('Landscaping'), ('Concrete/Asphalt'), ('Decks'), ('Pergola'), ('Fence'), ('Pool'), ('Septic')";
 
 
 }

@@ -79,14 +79,14 @@
         <activity
             android:name=".ContactDetailActivity"
             android:label="@string/title_activity_contact_detail"
-            android:parentActivityName=".Contacts"
+            android:parentActivityName=".ContactsActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mayps.reidatasystem.Contacts" />
+                android:value="com.mayps.reidatasystem.ContactsActivity" />
         </activity>
         <activity
-            android:name=".Contacts"
+            android:name=".ContactsActivity"
             android:label="@string/title_activity_contacts"
             android:parentActivityName=".CompanyDetailActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -95,7 +95,7 @@
                 android:value="com.mayps.reidatasystem.CompanyDetailActivity" />
         </activity>
         <activity
-            android:name=".AddressDetail"
+            android:name=".AddressDetailActivity"
             android:label="@string/title_activity_address_detail"
             android:parentActivityName=".AddressesActivity"
             android:theme="@style/AppTheme.NoActionBar">
