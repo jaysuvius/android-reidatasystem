@@ -30,7 +30,9 @@ public class Address extends Entity implements iEntity {
         this.county = county;
     }
 
+    public Address(){
 
+    }
 
     public String getAddress_1() {
         return address_1;
@@ -82,13 +84,6 @@ public class Address extends Entity implements iEntity {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "address_1='" + address_1 + '\'' +
-                ", address_2='" + address_2 + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zip='" + zip + '\'' +
-                ", county='" + county + '\'' +
-                '}';
+        return address_1;
     }
 }

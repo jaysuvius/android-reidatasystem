@@ -13,6 +13,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.mayps.reidatasystem.Adapters.AddressAdapter;
+import com.mayps.reidatasystem.Adapters.CompanyAdapter;
 import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Models.Address;
 import com.mayps.reidatasystem.Models.Company;
@@ -23,7 +25,7 @@ public class AddressesActivity extends AppCompatActivity {
 
     private List<Address> addresses;
     private ListView list;
-    private Company company;
+    private Address address;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -74,7 +76,7 @@ public class AddressesActivity extends AppCompatActivity {
 
         list = findViewById(R.id.addresses_listview);
 
-        ArrayAdapter<Address> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+        ArrayAdapter<Address> adapter = new AddressAdapter(AddressesActivity.this, addresses);
 
         list.setAdapter(adapter);
     }

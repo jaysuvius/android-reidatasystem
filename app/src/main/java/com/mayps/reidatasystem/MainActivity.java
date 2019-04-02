@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         final Button properties_button = findViewById(R.id.properties_button);
         properties_button.setOnClickListener(view -> launch_properties_activity(view));
 
+        final Button addresses_button = findViewById(R.id.addresses_button);
+        addresses_button.setOnClickListener((view -> launch_addresses_activity(view)));
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
@@ -65,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void launch_addresses_activity(View view){}
+    public void launch_addresses_activity(View view){
+        Intent intent = new Intent(this, AddressesActivity.class);
+        startActivity(intent);
+    }
 
 
 }

@@ -18,6 +18,10 @@ public class Contact extends Entity implements iEntity {
     private boolean is_title;
     private long company_id;
 
+    public Contact(){
+
+    }
+
     public Contact(String first_name, String last_name, String middle_initial, long address_id, String home_phone, String mobile_phone, String work_phone, String email_address, int is_realtor, String realtor_license, int is_broker, int is_title, long company_id) {
         this.first_name = first_name;
         this.last_name = last_name;
@@ -153,6 +157,10 @@ public class Contact extends Entity implements iEntity {
 
     public void setCompany_id(long company_id) {
         this.company_id = company_id;
+    }
+
+    public String getContactName(){
+        return this.first_name + " " + this.getLast_name();
     }
 
 

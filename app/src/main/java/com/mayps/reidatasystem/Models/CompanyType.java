@@ -29,4 +29,5 @@ public class CompanyType extends Entity implements iEntity {
     public String toString() {
         return company_type_description;
     }
+
 }

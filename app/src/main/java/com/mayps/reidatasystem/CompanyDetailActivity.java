@@ -57,6 +57,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
     private long addressId;
     private long contactId;
     ArrayAdapter<CompanyType> ctAdapter;
+    List<CompanyType> types;
 
 
     @Override
@@ -109,7 +110,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
         setup_inputs();
 
         ctc = new CompanyTypeController(getApplicationContext());
-        List<CompanyType> types = ctc.getAll();
+        types = ctc.getAll();
 
         ctAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, types);
 
@@ -168,7 +169,12 @@ public class CompanyDetailActivity extends AppCompatActivity {
         ctc = new CompanyTypeController(getApplicationContext());
         Uri ctUri = Uri.parse("content://" + ctc._provider.getAuthority() + "/" + ctc._provider.get_table() + "/" + company.getCompany_type());
         companyType = (CompanyType)ctc.getById(ctUri);
-        company_type_spinner.setSelection(ctAdapter.getPosition(companyType));
+        for (int i = 0; i < company_type_spinner.getCount(); i++){
+            if (((CompanyType)company_type_spinner.getItemAtPosition(i)).getCompany_type_description().equals(companyType.getCompany_type_description())){
+                company_type_spinner.setSelection(i);
+            }
+        }
+        //company_type_spinner.setSelection(ctAdapter.getPosition(companyType));
         addressId = company.getAddress_id();
         Uri addyUri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + addressId);
         ac = new AddressController(getApplicationContext());
@@ -193,8 +199,6 @@ public class CompanyDetailActivity extends AppCompatActivity {
         company.setId(0);
         company_name_input.setText("");
         company_type_spinner.setSelection(0);
-        address1TextView.setText("");
-        contact1Text.setText("");
         company.setAddress_id(0);
         company.setPrimary_contact_id(0);
         phone_input.setText("");

@@ -8,4 +8,6 @@
     tools:context=".AddressesActivity"
     tools:showIn="@layout/activity_addresses">
 
+    <include layout="@layout/addresses_layout" />
+
 </android.support.constraint.ConstraintLayout>

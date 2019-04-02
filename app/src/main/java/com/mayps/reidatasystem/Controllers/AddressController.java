@@ -50,7 +50,7 @@ public class AddressController extends AbstractController {
         ContentValues cv = new ContentValues();
         Address address = (Address) entity;
         cv.put(Constants.ADDRESS_ID, address.getId());
-        cv.put(Constants.ADDRESS_2, address.getAddress_1());
+        cv.put(Constants.ADDRESS_1, address.getAddress_1());
         cv.put(Constants.ADDRESS_2, address.getAddress_2());
         cv.put(Constants.ADDRESS_CITY, address.getCity());
         cv.put(Constants.ADDRESS_STATE, address.getState());
@@ -63,7 +63,7 @@ public class AddressController extends AbstractController {
     ContentValues getInsertValues(Entity entity) {
         ContentValues cv = new ContentValues();
         Address address = (Address) entity;
-        cv.put(Constants.ADDRESS_2, address.getAddress_1());
+        cv.put(Constants.ADDRESS_1, address.getAddress_1());
         cv.put(Constants.ADDRESS_2, address.getAddress_2());
         cv.put(Constants.ADDRESS_CITY, address.getCity());
         cv.put(Constants.ADDRESS_STATE, address.getState());
