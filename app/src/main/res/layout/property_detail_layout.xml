@@ -42,10 +42,34 @@
             android:text="Property Name" />
 
         <TextView
-            android:id="@+id/styleLabel"
+            android:id="@+id/addressLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/propertyNameLabel"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="25dp"
+            android:text="Address" />
+
+        <Spinner
+            android:id="@+id/property_address_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/propertyNameLabel"
+            android:layout_toEndOf="@+id/addressLabel"
+            android:layout_toRightOf="@+id/addressLabel"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="15dp" />
+
+        <TextView
+            android:id="@+id/styleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addressLabel"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="18dp"
@@ -57,7 +81,7 @@
             android:id="@+id/style_input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/property_name_input"
+            android:layout_below="@+id/addressLabel"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
             android:layout_marginTop="5dp"

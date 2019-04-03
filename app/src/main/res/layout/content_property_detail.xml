@@ -8,4 +8,6 @@
     tools:context=".PropertyDetailActivity"
     tools:showIn="@layout/activity_property_detail">
 
+    <include layout="@layout/property_detail_layout" />
+
 </android.support.constraint.ConstraintLayout>

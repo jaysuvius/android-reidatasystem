@@ -8,4 +8,6 @@
     tools:context=".PropertiesActivity"
     tools:showIn="@layout/activity_properties">
 
+    <include layout="@layout/properties_layout" />
+
 </android.support.constraint.ConstraintLayout>
