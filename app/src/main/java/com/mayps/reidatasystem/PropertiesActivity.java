@@ -1,13 +1,50 @@
 package com.mayps.reidatasystem;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.mayps.reidatasystem.Adapters.PropertyAdapter;
+import com.mayps.reidatasystem.Controllers.PropertyController;
+import com.mayps.reidatasystem.Models.Property;
+
+import java.util.List;
 
 public class PropertiesActivity extends AppCompatActivity {
+
+
+    private List<Property> properties;
+    private ListView list;
+    private Property property;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.entity_list_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_add:
+                launch_property_detail(0);
+                break;
+            case android.R.id.home:
+                Intent intent = NavUtils.getParentActivityIntent(this);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                NavUtils.navigateUpTo(this, intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,15 +53,44 @@ public class PropertiesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        fetch_properties();
+
+        list.setOnItemClickListener((arg0, arg1, position, arg3) -> {
+            Property selectedItem = (Property) arg0.getItemAtPosition(position);
+            launch_property_detail(selectedItem.getId());
+        });
+
     }
 
+    public void fetch_properties(){
+
+        PropertyController ac = new PropertyController(getApplicationContext());
+
+        properties = ac.getAll();
+
+        list = findViewById(R.id.properties_listview);
+
+        ArrayAdapter<Property> adapter = new PropertyAdapter(PropertiesActivity.this, properties);
+
+        list.setAdapter(adapter);
+    }
+
+    public void launch_property_detail(long id){
+        Intent intent = new Intent(this, PropertyDetailActivity.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        //savedInstanceState.putLong("id", company_layout.getId());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fetch_properties();
+    }
 }

@@ -12,14 +12,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Controllers.ContactController;
 import com.mayps.reidatasystem.Models.Address;
 import com.mayps.reidatasystem.Models.Contact;
+
+import java.util.List;
 
 public class ContactDetailActivity extends AppCompatActivity {
 
@@ -35,9 +39,15 @@ public class ContactDetailActivity extends AppCompatActivity {
     private CheckBox is_title_checkbox;
     private EditText licesnseNo;
 
-    private ContactController ac;
+    private ContactController cc;
     private Contact contact;
     private long id;
+
+    private AddressController ac;
+    private Address address;
+    private int addressId;
+    private List<Address> addresses;
+    private ArrayAdapter<Address> addyAdapter;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,15 +93,20 @@ public class ContactDetailActivity extends AppCompatActivity {
 
         getInputs();
 
+        ac = new AddressController(getApplicationContext());
+        addresses = ac.getAll();
+        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+        contact_address_spinner.setAdapter(addyAdapter);
+
         Bundle extrasBundle = getIntent().getExtras();
         id = 0;
         if (!extrasBundle.isEmpty()) {
             id = extrasBundle.getLong("id");
         }
-        ac = new ContactController(getApplicationContext());
-        Uri uri = Uri.parse("content://" + ac._provider.getAuthority() + "/" + ac._provider.get_table() + "/" + id);
+        cc = new ContactController(getApplicationContext());
+        Uri uri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + id);
 
-        contact = (Contact)ac.getById(uri);
+        contact = (Contact) cc.getById(uri);
 
         if(contact == null){
             newContact();
@@ -135,7 +150,11 @@ public class ContactDetailActivity extends AppCompatActivity {
         first_name_input.setText(contact.getFirst_name());
         last_name_input.setText(contact.getLast_name());
         middle_initial_input.setText(contact.getMiddle_initial());
-        //contact_address_spinner.setSelection()
+        for (int i = 0; i < contact_address_spinner.getCount(); i++){
+            if(((Address)contact_address_spinner.getItemAtPosition(i)).getId() == contact.getAddress_id()){
+                contact_address_spinner.setSelection(i);
+            }
+        }
         mobile_phone_input.setText(contact.getMobile_phone());
         work_phone_input.setText(contact.getWork_phone());
         is_title_checkbox.setChecked(contact.is_title());
@@ -149,15 +168,17 @@ public class ContactDetailActivity extends AppCompatActivity {
         contact.setFirst_name(first_name_input.getText().toString());
         contact.setLast_name(last_name_input.getText().toString());
         contact.setMiddle_initial(middle_initial_input.getText().toString());
-       /// contact.setAddress_id(Long.toString(((Address)contact_address_spinner.getSelectedItemId()).getId()));
+        contact.setAddress_id(((Address)contact_address_spinner.getSelectedItem()).getId());
         contact.setMobile_phone(mobile_phone_input.getText().toString());
         contact.setWork_phone(work_phone_input.getText().toString());
         contact.setIs_realtor(is_realtor_checkbox.isChecked());
         contact.setIs_broker(is_broker_checkbox.isChecked());
-        is_title_checkbox.setChecked(false);
-        is_realtor_checkbox.setChecked(false);
-        licesnseNo.setText("");
-        ac.saveContact(contact);
+        contact.setIs_title(is_title_checkbox.isChecked());
+        contact.setIs_realtor(is_realtor_checkbox.isChecked());
+        contact.setIs_broker(is_broker_checkbox.isChecked());
+        contact.setRealtor_license(licesnseNo.getText().toString());
+        if(cc.saveContact(contact))
+            Toast.makeText(ContactDetailActivity.this, "Saved Contact", Toast.LENGTH_LONG).show();
     }
 
     private void deleteContact(){
@@ -169,7 +190,7 @@ public class ContactDetailActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         contact.setId(id);
-                        ac.Delete(contact);
+                        cc.Delete(contact);
                         newContact();
                         Toast.makeText(ContactDetailActivity.this, "Deleted Contact", Toast.LENGTH_LONG).show();
                     }})

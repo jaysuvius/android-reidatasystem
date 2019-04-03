@@ -184,6 +184,7 @@ public class Property extends Entity implements iEntity {
         this.offer_2 = offer_2;
     }
 
+    public Property(){}
 
     public long getAddress_id() {
         return address_id;

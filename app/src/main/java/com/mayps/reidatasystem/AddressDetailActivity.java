@@ -132,7 +132,8 @@ public class AddressDetailActivity extends AppCompatActivity {
         address.setZip((zip_input.getText().toString()));
         address.setState(state_input.getText().toString());
         address.setCounty(county_input.getText().toString());
-        ac.saveAddress(address);
+        if(ac.saveAddress(address))
+            Toast.makeText(AddressDetailActivity.this, "Saved Address", Toast.LENGTH_LONG).show();
     }
 
     private void deleteAddress(){

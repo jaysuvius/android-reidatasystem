@@ -166,28 +166,20 @@ public class CompanyDetailActivity extends AppCompatActivity {
     private void fetch_company(){
         id = company.getId();
         company_name_input.setText(company.getCompany_name());
-        ctc = new CompanyTypeController(getApplicationContext());
-        Uri ctUri = Uri.parse("content://" + ctc._provider.getAuthority() + "/" + ctc._provider.get_table() + "/" + company.getCompany_type());
-        companyType = (CompanyType)ctc.getById(ctUri);
         for (int i = 0; i < company_type_spinner.getCount(); i++){
-            if (((CompanyType)company_type_spinner.getItemAtPosition(i)).getCompany_type_description().equals(companyType.getCompany_type_description())){
+            if (((CompanyType)company_type_spinner.getItemAtPosition(i)).getId() == company.getCompany_type()){
                 company_type_spinner.setSelection(i);
             }
         }
-        //company_type_spinner.setSelection(ctAdapter.getPosition(companyType));
-        addressId = company.getAddress_id();
-        Uri addyUri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + addressId);
-        ac = new AddressController(getApplicationContext());
-        address = (Address)ac.getById(addyUri);
-        if (address != null){
-            address1TextView.setText(address.getAddress_1());
+        for(int i = 0;  i< address_spinner.getCount(); i++){
+            if (((Address)address_spinner.getItemAtPosition(i)).getId() == company.getAddress_id()){
+                address_spinner.setSelection(i);
+            }
         }
-        contactId = company.getPrimary_contact_id();
-        conc = new ContactController(getApplicationContext());
-        Uri conUri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + contactId);
-        contact = (Contact) conc.getById(conUri);
-        if(contact != null){
-            contact1Text.setText(contact.getFirst_name() + " " + contact.getLast_name());
+        for (int i = 0; i < contact_spinner.getCount(); i++){
+            if(((Contact)contact_spinner.getItemAtPosition(i)).getId() == company.getPrimary_contact_id()){
+                contact_spinner.setSelection(i);
+            }
         }
         phone_input.setText(company.getPhone_number());
         fax_input.setText(company.getFax_number());
@@ -210,9 +202,8 @@ public class CompanyDetailActivity extends AppCompatActivity {
         company.setId(id);
         company.setCompany_name(company_name_input.getText().toString());
         company.setCompany_type(((CompanyType)company_type_spinner.getSelectedItem()).getId());
-        company.setAddress_id(addressId);
-        company.setPrimary_contact_id(contactId);
-        company.setCompany_type(ctAdapter.getItem(company_type_spinner.getSelectedItemPosition()).getId());
+        company.setAddress_id(((Address)address_spinner.getSelectedItem()).getId());
+        company.setPrimary_contact_id(((Contact)contact_spinner.getSelectedItem()).getId());
         company.setPhone_number(phone_input.getText().toString());
         company.setFax_number(fax_input.getText().toString());
         company.setEmail_address(email_input.getText().toString());

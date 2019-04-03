@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launch_properties_activity(View view){
-
+        Intent intent = new Intent(this, PropertiesActivity.class);
+        startActivity(intent);
     }
 
     public void launch_addresses_activity(View view){

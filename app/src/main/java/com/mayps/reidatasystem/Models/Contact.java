@@ -166,20 +166,6 @@ public class Contact extends Entity implements iEntity {
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", middle_initial='" + middle_initial + '\'' +
-                ", address_id=" + address_id +
-                ", home_phone='" + home_phone + '\'' +
-                ", mobile_phone='" + mobile_phone + '\'' +
-                ", work_phone='" + work_phone + '\'' +
-                ", email_address='" + email_address + '\'' +
-                ", is_realtor=" + is_realtor +
-                ", realtor_license='" + realtor_license + '\'' +
-                ", is_broker=" + is_broker +
-                ", is_title=" + is_title +
-                ", company_id=" + company_id +
-                '}';
+        return first_name + ' ' + last_name + ' ' +  middle_initial;
     }
 }
