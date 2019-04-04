@@ -212,7 +212,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
         style_input.setText(property.getStyle());
         sqft_input.setText(Integer.toString(property.getSq_ft()));
         lot_size_input.setText(Integer.toString(property.getLot_size()));
-        year_built_input.setText(property.getYear_built());
+        year_built_input.setText(Integer.toString(property.getYear_built()));
         multi_checkbox.setChecked(property.isIs_multi_unit());
         is_occupied_checkbox.setChecked(property.isIs_occupied());
         owner_occupied_checkbox.setChecked(property.isIs_owner_occupied());
@@ -231,7 +231,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
         has_liens_checkbox.setChecked(property.isHas_liens());
         multiple_mortgages_checkbox.setChecked(property.isHas_multiple_mortgages());
         payment_current_checkbox.setChecked(property.isIs_payment_current());
-        months_behind_input.setText(property.getMonths_behind());
+        months_behind_input.setText(Integer.toString(property.getMonths_behind()));
         amount_behind_input.setText(Double.toString(property.getAmount_behind()));
         back_taxes_input.setText(Double.toString(property.getBack_taxes()));
         other_lien_input.setText(Double.toString(property.getOther_lien_amount()));

@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ContactDetailActivity"
+            android:label="@string/title_activity_contact_detail"
+            android:parentActivityName=".ContactsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.ContactsActivity" />
+        </activity>
+        <activity
             android:name=".UnitDetailActivity"
             android:label="@string/title_activity_unit_detail"
             android:parentActivityName=".UnitActivity"
@@ -75,15 +84,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mayps.reidatasystem.MainActivity" />
-        </activity>
-        <activity
-            android:name=".ContactDetailActivity"
-            android:label="@string/title_activity_contact_detail"
-            android:parentActivityName=".ContactsActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mayps.reidatasystem.ContactsActivity" />
         </activity>
         <activity
             android:name=".ContactsActivity"
