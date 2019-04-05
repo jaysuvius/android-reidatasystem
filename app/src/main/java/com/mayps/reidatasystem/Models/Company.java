@@ -94,14 +94,6 @@ public class Company extends Entity implements iEntity {
 
     @Override
     public String toString() {
-        return "Company{" +
-                "company_name='" + company_name + '\'' +
-                ", company_type=" + company_type +
-                ", address_id=" + address_id +
-                ", primary_contact_id=" + primary_contact_id +
-                ", phone_number='" + phone_number + '\'' +
-                ", fax_number='" + fax_number + '\'' +
-                ", email_address='" + email_address + '\'' +
-                '}';
+        return company_name;
     }
 }

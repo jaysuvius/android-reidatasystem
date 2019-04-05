@@ -156,6 +156,6 @@ public class AddressDetailActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        //fetchAddress();
+        fetchAddress();
     }
 }

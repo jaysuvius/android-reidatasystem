@@ -1,5 +1,7 @@
 package com.mayps.reidatasystem;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -87,6 +89,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_entity_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_add_address, menu);
         return true;
     }
 
@@ -104,6 +107,9 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 delete_property();
                 new_property();
                 break;
+            case R.id.add_address:
+                launch_address_detail();
+                break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -111,6 +117,28 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void goToAddressDetailIntent() {
+        Intent intent = new Intent(this, AddressDetailActivity.class);
+        intent.putExtra("id", 0);
+        startActivity(intent);
+    }
+
+    private void launch_address(){
+        new AlertDialog.Builder(this)
+                .setTitle("Company must be saved to add address")
+                .setMessage("Save??")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(CompanyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
+                        save_property();
+                        goToAddressDetailIntent();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null).show();
     }
 
     @Override
@@ -127,24 +155,20 @@ public class PropertyDetailActivity extends AppCompatActivity {
 
         getInputs();
 
-        ac = new AddressController(getApplicationContext());
+
         Bundle extrasBundle = getIntent().getExtras();
         id = 0;
         if (!extrasBundle.isEmpty()) {
             id = extrasBundle.getLong("id");
-        }
-        addresses = ac.getAll();
-        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
-        property_address_spinner.setAdapter(addyAdapter);
 
-        pc = new PropertyController(getApplicationContext());
-        Uri uri = Uri.parse("content://" + pc._provider.getAuthority() + "/" + pc._provider.get_table() + "/" + id);
-        property = (Property)pc.getById(uri);
-        if(property == null){
-            new_property();
-        }
-        else{
-            fetch_property();
+            pc = new PropertyController(getApplicationContext());
+            Uri uri = Uri.parse("content://" + pc._provider.getAuthority() + "/" + pc._provider.get_table() + "/" + id);
+            property = (Property) pc.getById(uri);
+            if (property == null) {
+                new_property();
+            } else {
+                fetch_property();
+            }
         }
     }
 
@@ -203,6 +227,10 @@ public class PropertyDetailActivity extends AppCompatActivity {
     }
 
     public void fetch_property(){
+        ac = new AddressController(getApplicationContext());
+        addresses = ac.getAll();
+        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+        property_address_spinner.setAdapter(addyAdapter);
         property_name_input.setText(property.getProperty_name());
         for(int i = 0; i < property_address_spinner.getCount(); i++){
             if(((Address)property_address_spinner.getSelectedItem()).getId() == property.getAddress_id()){
@@ -373,13 +401,25 @@ public class PropertyDetailActivity extends AppCompatActivity {
     }
 
     public void delete_property(){
+        new AlertDialog.Builder(this)
+                .setTitle("Confirm")
+                .setMessage("Delete?")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        property.setId(id);
+                        pc.Delete(property);
+                        new_property();
+                        Toast.makeText(ContactDetailActivity.this, "Deleted Property", Toast.LENGTH_LONG).show();
+                    }})
+                .setNegativeButton(android.R.string.no, null).show();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        //fetch_property();
+        fetch_property();
     }
 
 

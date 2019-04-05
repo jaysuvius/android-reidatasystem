@@ -605,58 +605,6 @@ public class Property extends Entity implements iEntity {
 
     @Override
     public String toString() {
-        return "Property{" +
-                "address_id=" + address_id +
-                ", style='" + style + '\'' +
-                ", sq_ft=" + sq_ft +
-                ", lot_size=" + lot_size +
-                ", is_multi_unit=" + is_multi_unit +
-                ", year_built=" + year_built +
-                ", hoa_fees=" + hoa_fees +
-                ", is_occupied=" + is_occupied +
-                ", is_owner_occupied=" + is_owner_occupied +
-                ", special_features='" + special_features + '\'' +
-                ", upgrades='" + upgrades + '\'' +
-                ", is_listed=" + is_listed +
-                ", listing_date=" + listing_date +
-                ", has_other_offers=" + has_other_offers +
-                ", offer_amount=" + offer_amount +
-                ", realtor='" + realtor + '\'' +
-                ", realtor_phone='" + realtor_phone + '\'' +
-                ", reason_for_selling='" + reason_for_selling + '\'' +
-                ", time_frame='" + time_frame + '\'' +
-                ", no_sell_contingency='" + no_sell_contingency + '\'' +
-                ", mortgage_amount=" + mortgage_amount +
-                ", has_liens=" + has_liens +
-                ", has_multiple_mortgages=" + has_multiple_mortgages +
-                ", is_payment_current=" + is_payment_current +
-                ", months_behind=" + months_behind +
-                ", amount_behind=" + amount_behind +
-                ", back_taxes=" + back_taxes +
-                ", other_lien_amount=" + other_lien_amount +
-                ", monthly_payment=" + monthly_payment +
-                ", tax_amount=" + tax_amount +
-                ", insurance_amount=" + insurance_amount +
-                ", first_interest_rate=" + first_interest_rate +
-                ", second_interest_rate=" + second_interest_rate +
-                ", is_fixed_rate=" + is_fixed_rate +
-                ", payment_penalty=" + payment_penalty +
-                ", mortgage_company_1='" + mortgage_company_1 + '\'' +
-                ", getMortgage_company_2='" + getMortgage_company_2 + '\'' +
-                ", asking_price=" + asking_price +
-                ", is_flexible=" + is_flexible +
-                ", how_price_derived='" + how_price_derived + '\'' +
-                ", best_price_cash_fast_close=" + best_price_cash_fast_close +
-                ", absolute_bottom_price=" + absolute_bottom_price +
-                ", will_subject_to=" + will_subject_to +
-                ", can_accept_quickly=" + can_accept_quickly +
-                ", evaluator='" + evaluator + '\'' +
-                ", arv=" + arv +
-                ", repair_cost=" + repair_cost +
-                ", likely_purchase=" + likely_purchase +
-                ", exit_strategy='" + exit_strategy + '\'' +
-                ", offer_1=" + offer_1 +
-                ", offer_2=" + offer_2 +
-                '}';
+        return property_name;
     }
 }

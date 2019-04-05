@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
-import com.mayps.reidatasystem.Adapters.PropertyAdapter;
 import com.mayps.reidatasystem.Controllers.PropertyController;
 import com.mayps.reidatasystem.Models.Property;
 
@@ -22,6 +24,7 @@ public class PropertiesActivity extends AppCompatActivity {
     private List<Property> properties;
     private ListView list;
     private Property property;
+    private EditText searchPropertiesEditText;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,9 +75,29 @@ public class PropertiesActivity extends AppCompatActivity {
 
         list = findViewById(R.id.properties_listview);
 
-        ArrayAdapter<Property> adapter = new PropertyAdapter(PropertiesActivity.this, properties);
+        ArrayAdapter<Property> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, properties);
 
         list.setAdapter(adapter);
+
+        searchPropertiesEditText = findViewById(R.id.searchPropertiesEditText);
+
+        searchPropertiesEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
     }
 
     public void launch_property_detail(long id){

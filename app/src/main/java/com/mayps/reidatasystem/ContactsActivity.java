@@ -2,21 +2,19 @@ package com.mayps.reidatasystem;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
-import com.mayps.reidatasystem.Adapters.ContactAdapter;
 import com.mayps.reidatasystem.Controllers.ContactController;
 import com.mayps.reidatasystem.Models.Contact;
-import com.mayps.reidatasystem.Models.Company;
 
 import java.util.List;
 
@@ -25,6 +23,7 @@ public class ContactsActivity extends AppCompatActivity {
     private List<Contact> contactes;
     private ListView list;
     private Contact contact;
+    private EditText searchContactsEditText;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,9 +75,28 @@ public class ContactsActivity extends AppCompatActivity {
 
         list = findViewById(R.id.contacts_listview);
 
-        ArrayAdapter<Contact> adapter = new ContactAdapter(ContactsActivity.this, contactes);
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, contactes);
 
         list.setAdapter(adapter);
+
+        searchContactsEditText = findViewById(R.id.searchContactsEditText);
+
+        searchContactsEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     public void launch_contact_detail(long id){

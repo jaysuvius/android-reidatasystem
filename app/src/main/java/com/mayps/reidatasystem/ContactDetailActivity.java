@@ -53,6 +53,7 @@ public class ContactDetailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_entity_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_add_address, menu);
         return true;
     }
 
@@ -70,6 +71,9 @@ public class ContactDetailActivity extends AppCompatActivity {
                 deleteContact();
                 newContact();
                 break;
+            case R.id.add_address:
+                launch_address();
+                break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -77,6 +81,29 @@ public class ContactDetailActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void launch_address(){
+            new AlertDialog.Builder(this)
+                    .setTitle("Contact must be saved to add address")
+                    .setMessage("Save??")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            Toast.makeText(ContactDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
+                            saveContact();
+                            goToAdressDetailIntent();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, null).show();
+    }
+
+
+    private void goToAdressDetailIntent() {
+        Intent intent = new Intent(this, AddressDetailActivity.class);
+        intent.putExtra("id", 0);
+        startActivity(intent);
     }
 
     @Override
@@ -92,11 +119,6 @@ public class ContactDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getInputs();
-
-        ac = new AddressController(getApplicationContext());
-        addresses = ac.getAll();
-        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
-        contact_address_spinner.setAdapter(addyAdapter);
 
         Bundle extrasBundle = getIntent().getExtras();
         id = 0;
@@ -147,6 +169,12 @@ public class ContactDetailActivity extends AppCompatActivity {
 
     private void fetchContact(){
         id = contact.getId();
+
+        ac = new AddressController(getApplicationContext());
+        addresses = ac.getAll();
+        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+        contact_address_spinner.setAdapter(addyAdapter);
+
         first_name_input.setText(contact.getFirst_name());
         last_name_input.setText(contact.getLast_name());
         middle_initial_input.setText(contact.getMiddle_initial());
@@ -201,7 +229,7 @@ public class ContactDetailActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        //fetchContact();
+        fetchContact();
     }
 
 }

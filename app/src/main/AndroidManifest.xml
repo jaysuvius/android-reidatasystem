@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PropertyReportActivity"
+            android:label="@string/title_activity_property_report"
+            android:parentActivityName=".Activities.AlarmActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.Activities.AlarmActivity" />
+        </activity>
+        <activity
             android:name=".ContactDetailActivity"
             android:label="@string/title_activity_contact_detail"
             android:parentActivityName=".ContactsActivity"

@@ -34,4 +34,5 @@
     <string name="title_activity_repair_detail">RepairDetailActivity</string>
     <string name="title_activity_unit">UnitActivity</string>
     <string name="title_activity_unit_detail">UnitDetailActivity</string>
+    <string name="title_activity_property_report">PropertyReport</string>
 </resources>

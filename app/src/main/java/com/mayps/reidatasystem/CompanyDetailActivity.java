@@ -29,7 +29,6 @@ import com.mayps.reidatasystem.Models.Company;
 import com.mayps.reidatasystem.Models.CompanyType;
 import com.mayps.reidatasystem.Models.Contact;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyDetailActivity extends AppCompatActivity {
@@ -64,6 +63,8 @@ public class CompanyDetailActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_entity_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_add_address, menu);
+        getMenuInflater().inflate(R.menu.menu_add_contact, menu);
         return true;
     }
 
@@ -81,6 +82,12 @@ public class CompanyDetailActivity extends AppCompatActivity {
                 deleteCompany();
                 newCompany();
                 break;
+            case R.id.add_address:
+                launch_address();
+                break;
+            case R.id.add_contact:
+                launch_contact();
+                break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -88,6 +95,52 @@ public class CompanyDetailActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void launch_contact(){
+        new AlertDialog.Builder(this)
+                .setTitle("Company must be saved to add contact")
+                .setMessage("Save??")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(CompanyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
+                        saveCompany();
+                        goToContactDetailIntent();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null).show();
+    }
+
+
+    private void goToAddressDetailIntent() {
+        Intent intent = new Intent(this, AddressDetailActivity.class);
+        intent.putExtra("id", 0);
+        startActivity(intent);
+    }
+
+    private void launch_address(){
+        new AlertDialog.Builder(this)
+                .setTitle("Company must be saved to add address")
+                .setMessage("Save??")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(CompanyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
+                        saveCompany();
+                        goToAddressDetailIntent();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null).show();
+    }
+
+
+    private void goToContactDetailIntent() {
+        Intent intent = new Intent(this, ContactDetailActivity.class);
+        intent.putExtra("id", 0);
+        startActivity(intent);
     }
 
     @Override
@@ -164,6 +217,25 @@ public class CompanyDetailActivity extends AppCompatActivity {
 
 
     private void fetch_company(){
+        ctc = new CompanyTypeController(getApplicationContext());
+        types = ctc.getAll();
+
+        ctAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, types);
+
+        company_type_spinner.setAdapter(ctAdapter);
+
+        ac = new AddressController(getApplicationContext());
+        List<Address> addresses = ac.getAll();
+        ArrayAdapter aAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+
+        address_spinner.setAdapter(aAdapter);
+
+        conc = new ContactController(getApplicationContext());
+        List<Contact> contacts = conc.getAll();
+        ArrayAdapter conAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, contacts);
+        contact_spinner.setAdapter(conAdapter);
+
+        cc = new CompanyController(getApplicationContext());
         id = company.getId();
         company_name_input.setText(company.getCompany_name());
         for (int i = 0; i < company_type_spinner.getCount(); i++){

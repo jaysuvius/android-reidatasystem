@@ -2,22 +2,19 @@ package com.mayps.reidatasystem;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 
-import com.mayps.reidatasystem.Adapters.AddressAdapter;
-import com.mayps.reidatasystem.Adapters.CompanyAdapter;
 import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Models.Address;
-import com.mayps.reidatasystem.Models.Company;
 
 import java.util.List;
 
@@ -26,6 +23,7 @@ public class AddressesActivity extends AppCompatActivity {
     private List<Address> addresses;
     private ListView list;
     private Address address;
+    private EditText searchEditText;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -66,6 +64,9 @@ public class AddressesActivity extends AppCompatActivity {
             launch_address_detail(selectedItem.getId());
         });
 
+
+
+
     }
 
     public void fetch_addresses(){
@@ -76,9 +77,32 @@ public class AddressesActivity extends AppCompatActivity {
 
         list = findViewById(R.id.addresses_listview);
 
-        ArrayAdapter<Address> adapter = new AddressAdapter(AddressesActivity.this, addresses);
+        ArrayAdapter<Address> adapter = new ArrayAdapter< >(this, android.R.layout.simple_list_item_1, addresses);
 
         list.setAdapter(adapter);
+
+        list.setTextFilterEnabled(true);
+
+        searchEditText = findViewById(R.id.searchEditText);
+
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                adapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
     }
 
     public void launch_address_detail(long id){
