@@ -12,13 +12,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Models.Address;
-import com.mayps.reidatasystem.Models.Company;
 
 public class AddressDetailActivity extends AppCompatActivity {
 
@@ -31,6 +31,7 @@ public class AddressDetailActivity extends AppCompatActivity {
     private AddressController ac;
     private Address address;
     private long id;
+    private AwesomeValidation validator = new AwesomeValidation(ValidationStyle.BASIC);
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -102,6 +103,9 @@ public class AddressDetailActivity extends AppCompatActivity {
         state_input = findViewById(R.id.state_input);
         zip_input = findViewById(R.id.zip_input);
         county_input = findViewById((R.id.county_input));
+
+        validator.addValidation(zip_input, "^(0|[1-9][0-9]*)$", "Numeric Required");
+
     }
 
     private void newAddress(){
@@ -125,15 +129,18 @@ public class AddressDetailActivity extends AppCompatActivity {
     }
 
     private void saveAddress(){
-        address.setId(id);
-        address.setAddress_1(address_1_input.getText().toString());
-        address.setAddress_2(address_2_input.getText().toString());
-        address.setCity(city_input.getText().toString());
-        address.setZip((zip_input.getText().toString()));
-        address.setState(state_input.getText().toString());
-        address.setCounty(county_input.getText().toString());
-        if(ac.saveAddress(address))
-            Toast.makeText(AddressDetailActivity.this, "Saved Address", Toast.LENGTH_LONG).show();
+        if(validator.validate()){
+            address.setId(id);
+            address.setAddress_1(address_1_input.getText().toString());
+            address.setAddress_2(address_2_input.getText().toString());
+            address.setCity(city_input.getText().toString());
+            address.setZip((zip_input.getText().toString()));
+            address.setState(state_input.getText().toString());
+            address.setCounty(county_input.getText().toString());
+            if(ac.saveAddress(address))
+                Toast.makeText(AddressDetailActivity.this, "Saved Address", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     private void deleteAddress(){

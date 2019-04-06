@@ -14,6 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".RepairsActivity"
+            android:label="@string/title_activity_repairs"
+            android:parentActivityName=".PropertyDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.PropertyDetailActivity" />
+        </activity>
+        <activity
+            android:name=".UnitsActivity"
+            android:label="@string/title_activity_units"
+            android:parentActivityName=".PropertyDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mayps.reidatasystem.PropertyDetailActivity" />
+        </activity>
+        <activity
             android:name=".PropertyReportActivity"
             android:label="@string/title_activity_property_report"
             android:parentActivityName=".Activities.AlarmActivity"

@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Controllers.ContactController;
 import com.mayps.reidatasystem.Models.Address;
@@ -48,6 +50,7 @@ public class ContactDetailActivity extends AppCompatActivity {
     private int addressId;
     private List<Address> addresses;
     private ArrayAdapter<Address> addyAdapter;
+    private AwesomeValidation validator = new AwesomeValidation(ValidationStyle.BASIC);;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -150,6 +153,9 @@ public class ContactDetailActivity extends AppCompatActivity {
         is_title_checkbox = findViewById(R.id.title_checkbox);
         is_broker_checkbox = findViewById(R.id.broker_checkbox);
         licesnseNo = findViewById(R.id.license_input);
+
+        validator.addValidation(mobile_phone_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
+        validator.addValidation(work_phone_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
     }
 
     private void newContact(){
@@ -192,21 +198,23 @@ public class ContactDetailActivity extends AppCompatActivity {
     }
 
     private void saveContact(){
-        contact.setId(id);
-        contact.setFirst_name(first_name_input.getText().toString());
-        contact.setLast_name(last_name_input.getText().toString());
-        contact.setMiddle_initial(middle_initial_input.getText().toString());
-        contact.setAddress_id(((Address)contact_address_spinner.getSelectedItem()).getId());
-        contact.setMobile_phone(mobile_phone_input.getText().toString());
-        contact.setWork_phone(work_phone_input.getText().toString());
-        contact.setIs_realtor(is_realtor_checkbox.isChecked());
-        contact.setIs_broker(is_broker_checkbox.isChecked());
-        contact.setIs_title(is_title_checkbox.isChecked());
-        contact.setIs_realtor(is_realtor_checkbox.isChecked());
-        contact.setIs_broker(is_broker_checkbox.isChecked());
-        contact.setRealtor_license(licesnseNo.getText().toString());
-        if(cc.saveContact(contact))
-            Toast.makeText(ContactDetailActivity.this, "Saved Contact", Toast.LENGTH_LONG).show();
+        if(validator.validate()){
+            contact.setId(id);
+            contact.setFirst_name(first_name_input.getText().toString());
+            contact.setLast_name(last_name_input.getText().toString());
+            contact.setMiddle_initial(middle_initial_input.getText().toString());
+            contact.setAddress_id(((Address)contact_address_spinner.getSelectedItem()).getId());
+            contact.setMobile_phone(mobile_phone_input.getText().toString());
+            contact.setWork_phone(work_phone_input.getText().toString());
+            contact.setIs_realtor(is_realtor_checkbox.isChecked());
+            contact.setIs_broker(is_broker_checkbox.isChecked());
+            contact.setIs_title(is_title_checkbox.isChecked());
+            contact.setIs_realtor(is_realtor_checkbox.isChecked());
+            contact.setIs_broker(is_broker_checkbox.isChecked());
+            contact.setRealtor_license(licesnseNo.getText().toString());
+            if(cc.saveContact(contact))
+                Toast.makeText(ContactDetailActivity.this, "Saved Contact", Toast.LENGTH_LONG).show();
+        }
     }
 
     private void deleteContact(){

@@ -18,6 +18,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Controllers.PropertyController;
 import com.mayps.reidatasystem.Models.Address;
@@ -34,6 +36,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
     private EditText year_built_input;
     private CheckBox multi_checkbox;
     private CheckBox is_occupied_checkbox;
+
     private CheckBox owner_occupied_checkbox;
     private EditText special_features_input;
     private EditText upgrades_input;
@@ -84,12 +87,14 @@ public class PropertyDetailActivity extends AppCompatActivity {
     PropertyController pc;
     Property property;
     long id = 0;
+    AwesomeValidation validator = new AwesomeValidation(ValidationStyle.BASIC);
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_entity_detail, menu);
         getMenuInflater().inflate(R.menu.menu_add_address, menu);
+        getMenuInflater().inflate(R.menu.menu_property_detail, menu);
         return true;
     }
 
@@ -108,7 +113,13 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 new_property();
                 break;
             case R.id.add_address:
-                launch_address_detail();
+                launch_address();
+                break;
+            case R.id.view_repairs:
+                launch_repairs();
+                break;
+            case R.id.view_units:
+                launch_units();
                 break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
@@ -117,6 +128,20 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void launch_repairs(){
+        Intent intent = new Intent(this, RepairsActivity.class);
+        intent.putExtra("id", 0);
+        intent.putExtra("propertyId", id);
+        startActivity(intent);
+    }
+
+    private void launch_units(){
+        Intent intent = new Intent(this, UnitActivity.class);
+        intent.putExtra("id", 0);
+        intent.putExtra("propertyId", id);
+        startActivity(intent);
     }
 
     private void goToAddressDetailIntent() {
@@ -133,7 +158,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Toast.makeText(CompanyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PropertyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
                         save_property();
                         goToAddressDetailIntent();
                     }
@@ -166,9 +191,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
             property = (Property) pc.getById(uri);
             if (property == null) {
                 new_property();
-            } else {
-                fetch_property();
-            }
+            } else fetch_property();
         }
     }
 
@@ -178,7 +201,9 @@ public class PropertyDetailActivity extends AppCompatActivity {
         style_input = findViewById(R.id.style_input);
         sqft_input = findViewById(R.id.sqft_input);
         lot_size_input = findViewById(R.id.lot_size_input);
+        validator.addValidation(lot_size_input, "^(0|[1-9][0-9]*)$", "Numeric");
         year_built_input = findViewById(R.id.year_built_input);
+        validator.addValidation(year_built_input, "^(0|[1-9][0-9]*)$", "Numeric");
         multi_checkbox = findViewById(R.id.multi_checkbox);
         is_occupied_checkbox = findViewById(R.id.is_occupied_checkbox);
         owner_occupied_checkbox = findViewById(R.id.owner_occupied_checkbox);
@@ -188,42 +213,61 @@ public class PropertyDetailActivity extends AppCompatActivity {
         listing_date_input = findViewById(R.id.listing_date_input);
         other_offers_checkbox = findViewById(R.id.other_offers_checkbox);
         offer_amount_input = findViewById(R.id.offer_amount_input);
+        validator.addValidation(offer_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
         realtor_input = findViewById(R.id.realtor_input);
         realtor_phone_input = findViewById(R.id.realtor_phone_input);
+        validator.addValidation(realtor_phone_input, "^(0|[1-9][0-9]*)$", "Numeric");
         reason_selling_input = findViewById(R.id.reason_selling_input);
         time_frame_input = findViewById(R.id.time_frame_input);
         no_sell_cont_input = findViewById(R.id.no_sell_cont_input);
         mortgage_amount_input = findViewById(R.id.mortgage_amount_input);
+        validator.addValidation(mortgage_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
         has_liens_checkbox = findViewById(R.id.has_liens_checkbox);
         multiple_mortgages_checkbox = findViewById(R.id.multiple_mortgages_checkbox);
         payment_current_checkbox = findViewById(R.id.payment_current_checkbox);
         months_behind_input = findViewById(R.id.months_behind_input);
+        validator.addValidation(months_behind_input, "^(0|[1-9][0-9]*)$", "Numeric");
         amount_behind_input = findViewById(R.id.amount_behind_input);
         back_taxes_input = findViewById(R.id.back_taxes_input);
+        validator.addValidation(amount_behind_input, "^(0|[1-9][0-9]*)$", "Numeric");
         other_lien_input = findViewById(R.id.other_lien_input);
+        validator.addValidation(other_lien_input, "^(0|[1-9][0-9]*)$", "Numeric");
         monthly_payment_input = findViewById(R.id.monthly_payment_input);
+        validator.addValidation(monthly_payment_input, "^(0|[1-9][0-9]*)$", "Numeric");
         tax_amount_input = findViewById(R.id.tax_amount_input);
+        validator.addValidation(tax_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
         insurance_amount_input = findViewById(R.id.insurance_amount_input);
+        validator.addValidation(insurance_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
         fixed_interest_checkbox = findViewById(R.id.fixed_interest_checkbox);
         interest_1_input = findViewById(R.id.interest_1_input);
+        validator.addValidation(interest_1_input, "^(0|[1-9][0-9]*)$", "Numeric");
         interest_2_input = findViewById(R.id.interest_2_input);
+        validator.addValidation(interest_2_input, "^(0|[1-9][0-9]*)$", "Numeric");
         payment_penalty_input = findViewById(R.id.payment_penalty_input);
+        validator.addValidation(payment_penalty_input, "^(0|[1-9][0-9]*)$", "Numeric");
         mortgage_company_1_input = findViewById(R.id.mortgage_company_1_input);
         mortgage_company_2_input = findViewById(R.id.mortgage_company_2_input);
         asking_price_input = findViewById(R.id.asking_price_input);
+        validator.addValidation(asking_price_input, "^(0|[1-9][0-9]*)$", "Numeric");
         flexible_checkbox = findViewById(R.id.flexible_checkbox);
         price_derived_input = findViewById(R.id.price_derived_input);
+        validator.addValidation(price_derived_input, "^(0|[1-9][0-9]*)$", "Numeric");
         best_price_fast_close_input = findViewById(R.id.best_price_fast_close_input);
+        validator.addValidation(best_price_fast_close_input, "^(0|[1-9][0-9]*)$", "Numeric");
         bottom_price_input = findViewById(R.id.bottom_price_input);
+        validator.addValidation(bottom_price_input, "^(0|[1-9][0-9]*)$", "Numeric");
         subject_to_checkbox = findViewById(R.id.subject_to_checkbox);
         accept_quickly_checkbox = findViewById(R.id.accept_quickly_checkbox);
         evaluator_input = findViewById(R.id.evaluator_input);
         arv_input = findViewById(R.id.arv_input);
         repair_cost_input = findViewById(R.id.repair_cost_input);
+        validator.addValidation(offer_1_input, "^(0|[1-9][0-9]*)$", "Numeric");
         likely_purchase_checkbox = findViewById(R.id.likely_purchase_checkbox);
         exit_strategy_input = findViewById(R.id.exit_strategy_input);
         offer_1_input = findViewById(R.id.offer_1_input);
+        validator.addValidation(lot_size_input, "^(0|[1-9][0-9]*)$", "Numeric");
         offer_2_input = findViewById(R.id.offer_2_input);
+        validator.addValidation(offer_2_input, "^(0|[1-9][0-9]*)$", "Numeric");
     }
 
     public void fetch_property(){
@@ -233,7 +277,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
         property_address_spinner.setAdapter(addyAdapter);
         property_name_input.setText(property.getProperty_name());
         for(int i = 0; i < property_address_spinner.getCount(); i++){
-            if(((Address)property_address_spinner.getSelectedItem()).getId() == property.getAddress_id()){
+            if(((Address)property_address_spinner.getItemAtPosition(i)).getId() == property.getAddress_id()){
                 property_address_spinner.setSelection(i);
             }
         }
@@ -345,59 +389,61 @@ public class PropertyDetailActivity extends AppCompatActivity {
     }
     
     public void save_property(){
-        property.setProperty_name(property_name_input.getText().toString());
-        property.setAddress_id(((Address)property_address_spinner.getSelectedItem()).getId());
-        property.setStyle(style_input.getText().toString());
-        property.setSq_ft(Integer.parseInt(sqft_input.getText().toString()));
-        property.setLot_size(Integer.parseInt(lot_size_input.getText().toString()));
-        property.setYear_built(Integer.parseInt(year_built_input.getText().toString()));
-        property.setIs_multi_unit(multi_checkbox.isChecked());
-        property.setIs_occupied(is_occupied_checkbox.isChecked());
-        property.setIs_owner_occupied(owner_occupied_checkbox.isChecked());
-        property.setSpecial_features(special_features_input.getText().toString());
-        property.setUpgrades(upgrades_input.getText().toString());
-        property.setIs_listed(is_listed_checkbox.isChecked());
-        property.setListing_date(listing_date_input.getText().toString());
-        property.setHas_other_offers(other_offers_checkbox.isChecked());
-        property.setOffer_amount(Double.parseDouble(offer_amount_input.getText().toString()));
-        property.setRealtor(realtor_input.getText().toString());
-        property.setRealtor_phone(realtor_phone_input.getText().toString());
-        property.setReason_for_selling(reason_selling_input.getText().toString());
-        property.setTime_frame(time_frame_input.getText().toString());
-        property.setNo_sell_contingency(no_sell_cont_input.getText().toString());
-        property.setMortgage_amount(Double.parseDouble(mortgage_amount_input.getText().toString()));
-        property.setHas_liens(has_liens_checkbox.isChecked());
-        property.setHas_multiple_mortgages(multiple_mortgages_checkbox.isChecked());
-        property.setIs_payment_current(payment_current_checkbox.isChecked());
-        property.setMonths_behind(Integer.parseInt(months_behind_input.getText().toString()));
-        property.setAmount_behind(Double.parseDouble(amount_behind_input.getText().toString()));
-        property.setBack_taxes(Double.parseDouble(back_taxes_input.getText().toString()));
-        property.setOther_lien_amount(Double.parseDouble(other_lien_input.getText().toString()));
-        property.setMonthly_payment(Double.parseDouble(monthly_payment_input.getText().toString()));
-        property.setTax_amount(Double.parseDouble(tax_amount_input.getText().toString()));
-        property.setInsurance_amount(Double.parseDouble(insurance_amount_input.getText().toString()));
-        property.setIs_fixed_rate(fixed_interest_checkbox.isChecked());
-        property.setFirst_interest_rate(Double.parseDouble(interest_1_input.getText().toString()));
-        property.setSecond_interest_rate(Double.parseDouble(interest_2_input.getText().toString()));
-        property.setPayment_penalty(Double.parseDouble(payment_penalty_input.getText().toString()));
-        property.setMortgage_company_1(mortgage_company_1_input.getText().toString());
-        property.setGetMortgage_company_2(mortgage_company_2_input.getText().toString());
-        property.setAsking_price(Double.parseDouble(asking_price_input.getText().toString()));
-        property.setIs_flexible(flexible_checkbox.isChecked());
-        property.setHow_price_derived(price_derived_input.getText().toString());
-        property.setBest_price_cash_fast_close(Double.parseDouble(best_price_fast_close_input.getText().toString()));
-        property.setAbsolute_bottom_price(Double.parseDouble(bottom_price_input.getText().toString()));
-        property.setWill_subject_to(subject_to_checkbox.isChecked());
-        property.setCan_accept_quickly(accept_quickly_checkbox.isChecked());
-        property.setEvaluator(evaluator_input.getText().toString());
-        property.setArv(Double.parseDouble(arv_input.getText().toString()));
-        property.setRepair_cost(Double.parseDouble(repair_cost_input.getText().toString()));
-        property.setLikely_purchase(likely_purchase_checkbox.isChecked());
-        property.setExit_strategy(exit_strategy_input.getText().toString());
-        property.setOffer_1(Double.parseDouble(offer_1_input.getText().toString()));
-        property.setOffer_2(Double.parseDouble(offer_2_input.getText().toString()));
-        if(pc.saveProperty(property))
-            Toast.makeText(PropertyDetailActivity.this, "Saved Property", Toast.LENGTH_LONG).show();
+        if(validator.validate()){
+            property.setProperty_name(property_name_input.getText().toString());
+            property.setAddress_id(((Address)property_address_spinner.getSelectedItem()).getId());
+            property.setStyle(style_input.getText().toString());
+            property.setSq_ft(Integer.parseInt(sqft_input.getText().toString()));
+            property.setLot_size(Integer.parseInt(lot_size_input.getText().toString()));
+            property.setYear_built(Integer.parseInt(year_built_input.getText().toString()));
+            property.setIs_multi_unit(multi_checkbox.isChecked());
+            property.setIs_occupied(is_occupied_checkbox.isChecked());
+            property.setIs_owner_occupied(owner_occupied_checkbox.isChecked());
+            property.setSpecial_features(special_features_input.getText().toString());
+            property.setUpgrades(upgrades_input.getText().toString());
+            property.setIs_listed(is_listed_checkbox.isChecked());
+            property.setListing_date(listing_date_input.getText().toString());
+            property.setHas_other_offers(other_offers_checkbox.isChecked());
+            property.setOffer_amount(Double.parseDouble(offer_amount_input.getText().toString()));
+            property.setRealtor(realtor_input.getText().toString());
+            property.setRealtor_phone(realtor_phone_input.getText().toString());
+            property.setReason_for_selling(reason_selling_input.getText().toString());
+            property.setTime_frame(time_frame_input.getText().toString());
+            property.setNo_sell_contingency(no_sell_cont_input.getText().toString());
+            property.setMortgage_amount(Double.parseDouble(mortgage_amount_input.getText().toString()));
+            property.setHas_liens(has_liens_checkbox.isChecked());
+            property.setHas_multiple_mortgages(multiple_mortgages_checkbox.isChecked());
+            property.setIs_payment_current(payment_current_checkbox.isChecked());
+            property.setMonths_behind(Integer.parseInt(months_behind_input.getText().toString()));
+            property.setAmount_behind(Double.parseDouble(amount_behind_input.getText().toString()));
+            property.setBack_taxes(Double.parseDouble(back_taxes_input.getText().toString()));
+            property.setOther_lien_amount(Double.parseDouble(other_lien_input.getText().toString()));
+            property.setMonthly_payment(Double.parseDouble(monthly_payment_input.getText().toString()));
+            property.setTax_amount(Double.parseDouble(tax_amount_input.getText().toString()));
+            property.setInsurance_amount(Double.parseDouble(insurance_amount_input.getText().toString()));
+            property.setIs_fixed_rate(fixed_interest_checkbox.isChecked());
+            property.setFirst_interest_rate(Double.parseDouble(interest_1_input.getText().toString()));
+            property.setSecond_interest_rate(Double.parseDouble(interest_2_input.getText().toString()));
+            property.setPayment_penalty(Double.parseDouble(payment_penalty_input.getText().toString()));
+            property.setMortgage_company_1(mortgage_company_1_input.getText().toString());
+            property.setGetMortgage_company_2(mortgage_company_2_input.getText().toString());
+            property.setAsking_price(Double.parseDouble(asking_price_input.getText().toString()));
+            property.setIs_flexible(flexible_checkbox.isChecked());
+            property.setHow_price_derived(price_derived_input.getText().toString());
+            property.setBest_price_cash_fast_close(Double.parseDouble(best_price_fast_close_input.getText().toString()));
+            property.setAbsolute_bottom_price(Double.parseDouble(bottom_price_input.getText().toString()));
+            property.setWill_subject_to(subject_to_checkbox.isChecked());
+            property.setCan_accept_quickly(accept_quickly_checkbox.isChecked());
+            property.setEvaluator(evaluator_input.getText().toString());
+            property.setArv(Double.parseDouble(arv_input.getText().toString()));
+            property.setRepair_cost(Double.parseDouble(repair_cost_input.getText().toString()));
+            property.setLikely_purchase(likely_purchase_checkbox.isChecked());
+            property.setExit_strategy(exit_strategy_input.getText().toString());
+            property.setOffer_1(Double.parseDouble(offer_1_input.getText().toString()));
+            property.setOffer_2(Double.parseDouble(offer_2_input.getText().toString()));
+            if(pc.saveProperty(property))
+                Toast.makeText(PropertyDetailActivity.this, "Saved Property", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void delete_property(){
@@ -411,7 +457,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
                         property.setId(id);
                         pc.Delete(property);
                         new_property();
-                        Toast.makeText(ContactDetailActivity.this, "Deleted Property", Toast.LENGTH_LONG).show();
+                        Toast.makeText(PropertyDetailActivity.this, "Deleted Property", Toast.LENGTH_LONG).show();
                     }})
                 .setNegativeButton(android.R.string.no, null).show();
     }

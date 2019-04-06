@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/unitNumberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="50dp"
+            android:text="Unit Number"  />
+
+        <EditText
+            android:id="@+id/unit_number_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/unitNumberLabel"
+            android:layout_toRightOf="@+id/unitNumberLabel"
+            android:ems="10"
+            android:inputType="text"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/unitSqFtLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/unitNumberLabel"
+            android:layout_alignStart="@+id/unitNumberLabel"
+            android:layout_below="@+id/unitNumberLabel"
+            android:layout_marginTop="15dp"
+            android:text="SqFt" />
+
+        <EditText
+            android:id="@+id/unit_sqft_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/unitSqFtLabel"
+            android:layout_toRightOf="@+id/unitSqFtLabel"
+            android:layout_below="@+id/unit_number_input"
+            android:ems="10"
+            android:inputType="number"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/bedCountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/unitNumberLabel"
+            android:layout_alignStart="@+id/unitNumberLabel"
+            android:layout_below="@+id/unitSqFtLabel"
+            android:layout_marginTop="15dp"
+            android:text="Bed Count" />
+
+        <EditText
+            android:id="@+id/bed_count_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_toEndOf="@+id/bedCountLabel"
+            android:layout_toRightOf="@+id/bedCountLabel"
+            android:layout_below="@+id/unitSqFtLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/bathCountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/unitNumberLabel"
+            android:layout_alignStart="@+id/unitNumberLabel"
+            android:layout_below="@+id/bedCountLabel"
+            android:layout_marginTop="15dp"
+            android:text="Bath Count" />
+
+        <EditText
+            android:id="@+id/bath_count_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_toEndOf="@+id/bathCountLabel"
+            android:layout_toRightOf="@+id/bathCountLabel"
+            android:layout_below="@+id/bedCountLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/rentAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/unitNumberLabel"
+            android:layout_alignStart="@+id/unitNumberLabel"
+            android:layout_below="@+id/bathCountLabel"
+            android:layout_marginTop="15dp"
+            android:text="Rent Amount" />
+
+        <EditText
+            android:id="@+id/rent_amount_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_toEndOf="@+id/bathCountLabel"
+            android:layout_toRightOf="@+id/bathCountLabel"
+            android:layout_below="@+id/bathCountLabel"
+            android:ems="10"
+            android:inputType="number"
+            android:text="" />
+
+        <CheckBox
+            android:id="@+id/is_unit__occupied_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rentAmountLabel"
+            android:layout_alignLeft="@+id/unitNumberLabel"
+            android:layout_alignStart="@+id/unitNumberLabel"
+            android:layout_marginTop="35dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:text="Occupied" />
+
+        <TextView
+            android:id="@+id/specialUnitFeaturesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_unit__occupied_checkbox"
+            android:layout_alignStart="@+id/unitNumberLabel"
+            android:layout_alignLeft="@+id/unitNumberLabel"
+            android:text="Features" />
+
+        <EditText
+            android:id="@+id/unit_special_features_input"
+            android:layout_width="40pt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/is_unit__occupied_checkbox"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_toEndOf="@+id/specialUnitFeaturesLabel"
+            android:layout_toRightOf="@+id/specialUnitFeaturesLabel"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            android:scrollbars="vertical"
+            android:text="Sizzle" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

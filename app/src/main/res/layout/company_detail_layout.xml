@@ -119,7 +119,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:text="Phone" />
 
         <TextView
@@ -163,7 +163,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:text="Email" />
 
 

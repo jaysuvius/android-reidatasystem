@@ -6,16 +6,38 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
+import com.mayps.reidatasystem.DAL.DataProvider;
 import com.mayps.reidatasystem.DAL.UnitProvider;
 import com.mayps.reidatasystem.Models.Unit;
 import com.mayps.reidatasystem.Models.Entity;
 import com.mayps.reidatasystem.Utils.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UnitController extends AbstractController {
 
     public UnitController(Context c){
         super(c, UnitProvider.getInstance());
     }
+
+    public List<Unit> getByPropertyId(Uri uri){
+        String selectionClause = "";
+        if(_provider.getUriMatcher().match(uri) == DataProvider.REIDATASYSTEM_ID){
+            selectionClause = Constants.MULTI_UNIT_PROPERTY_ID + " = " + uri.getLastPathSegment();
+        }
+        List<Unit> entities = new ArrayList<>();
+
+        Cursor cursor = _context.getContentResolver().query(_provider.get_content_uri(), null, selectionClause, null, null);
+        if (cursor.getCount() > 0){
+            for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+                entities.add(parse(cursor));
+            }
+        }
+        return entities;
+    }
+
+
 
     public boolean saveUnit(Unit entity){
         try{

@@ -6,15 +6,36 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
+import com.mayps.reidatasystem.DAL.DataProvider;
 import com.mayps.reidatasystem.DAL.RepairProvider;
 import com.mayps.reidatasystem.Models.Repair;
 import com.mayps.reidatasystem.Models.Entity;
+import com.mayps.reidatasystem.Models.Unit;
 import com.mayps.reidatasystem.Utils.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RepairController extends AbstractController {
 
     public RepairController(Context c){
         super(c, RepairProvider.getInstance());
+    }
+
+    public List<Repair> getByPropertyId(Uri uri){
+        String selectionClause = "";
+        if(_provider.getUriMatcher().match(uri) == DataProvider.REIDATASYSTEM_ID){
+            selectionClause = Constants.MULTI_UNIT_PROPERTY_ID + " = " + uri.getLastPathSegment();
+        }
+        List<Repair> entities = new ArrayList<>();
+
+        Cursor cursor = _context.getContentResolver().query(_provider.get_content_uri(), null, selectionClause, null, null);
+        if (cursor.getCount() > 0){
+            for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+                entities.add(parse(cursor));
+            }
+        }
+        return entities;
     }
 
     public boolean saveRepair(Repair entity){

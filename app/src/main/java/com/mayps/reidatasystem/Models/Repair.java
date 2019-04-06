@@ -8,6 +8,8 @@ public class Repair extends Entity implements iEntity {
     private long repair_type_id;
     private String repair_description;
 
+    public Repair(){}
+
     public Repair(long property_id, long repair_type_id, String repair_description) {
         this.property_id = property_id;
         this.repair_type_id = repair_type_id;

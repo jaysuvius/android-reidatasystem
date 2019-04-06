@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Controllers.CompanyController;
 import com.mayps.reidatasystem.Controllers.CompanyTypeController;
@@ -57,7 +60,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
     private long contactId;
     ArrayAdapter<CompanyType> ctAdapter;
     List<CompanyType> types;
-
+    private AwesomeValidation validator = new AwesomeValidation(ValidationStyle.BASIC);
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -213,6 +216,10 @@ public class CompanyDetailActivity extends AppCompatActivity {
         phone_input = findViewById(R.id.phone_input);
         fax_input = findViewById(R.id.fax_input);
         email_input = findViewById(R.id.email_input);
+
+        validator.addValidation(phone_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
+        validator.addValidation(fax_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
+        validator.addValidation(phone_input, Patterns.EMAIL_ADDRESS, "Valid Email Address");
     }
 
 
@@ -271,16 +278,19 @@ public class CompanyDetailActivity extends AppCompatActivity {
     }
 
     private void saveCompany(){
-        company.setId(id);
-        company.setCompany_name(company_name_input.getText().toString());
-        company.setCompany_type(((CompanyType)company_type_spinner.getSelectedItem()).getId());
-        company.setAddress_id(((Address)address_spinner.getSelectedItem()).getId());
-        company.setPrimary_contact_id(((Contact)contact_spinner.getSelectedItem()).getId());
-        company.setPhone_number(phone_input.getText().toString());
-        company.setFax_number(fax_input.getText().toString());
-        company.setEmail_address(email_input.getText().toString());
-        if(cc.saveCompany(company))
-            Toast.makeText(CompanyDetailActivity.this, "Saved Company", Toast.LENGTH_LONG).show();
+        if(validator.validate()){
+            company.setId(id);
+            company.setCompany_name(company_name_input.getText().toString());
+            company.setCompany_type(((CompanyType)company_type_spinner.getSelectedItem()).getId());
+            company.setAddress_id(((Address)address_spinner.getSelectedItem()).getId());
+            company.setPrimary_contact_id(((Contact)contact_spinner.getSelectedItem()).getId());
+            company.setPhone_number(phone_input.getText().toString());
+            company.setFax_number(fax_input.getText().toString());
+            company.setEmail_address(email_input.getText().toString());
+            if(cc.saveCompany(company))
+                Toast.makeText(CompanyDetailActivity.this, "Saved Company", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     private void deleteCompany(){
