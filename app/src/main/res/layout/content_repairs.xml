@@ -8,4 +8,6 @@
     tools:context=".RepairsActivity"
     tools:showIn="@layout/activity_repairs">
 
+    <include layout="@layout/repairs_layout" />
+
 </android.support.constraint.ConstraintLayout>

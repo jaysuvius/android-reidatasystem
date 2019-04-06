@@ -7,13 +7,13 @@
     <item
         android:id="@+id/view_repairs"
         android:orderInCategory="101"
-        android:title="@string/save_menu"
+        android:title="View Repairs"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/view_units"
         android:orderInCategory="102"
-        android:title="@string/menu_delete"
+        android:title="View Units"
         app:showAsAction="never" />
 
 

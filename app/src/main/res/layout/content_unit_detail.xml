@@ -8,4 +8,6 @@
     tools:context=".UnitDetailActivity"
     tools:showIn="@layout/activity_unit_detail">
 
+    <include layout="@layout/unit_detail_layout" />
+
 </android.support.constraint.ConstraintLayout>

@@ -138,7 +138,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
     }
 
     private void launch_units(){
-        Intent intent = new Intent(this, UnitActivity.class);
+        Intent intent = new Intent(this, UnitsActivity.class);
         intent.putExtra("id", 0);
         intent.putExtra("propertyId", id);
         startActivity(intent);
