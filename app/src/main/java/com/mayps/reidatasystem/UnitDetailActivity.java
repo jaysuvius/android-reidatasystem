@@ -39,7 +39,7 @@ public class UnitDetailActivity extends AppCompatActivity {
     private long id;
     private long propertyId;
     private AwesomeValidation validator = new AwesomeValidation(ValidationStyle.BASIC);
-    private UnitController uc = new UnitController(getApplicationContext());
+    private UnitController uc;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,6 +90,7 @@ public class UnitDetailActivity extends AppCompatActivity {
 
         getInputs();
 
+        uc = new UnitController(getApplicationContext());
         Bundle extrasBundle = getIntent().getExtras();
         id = 0;
         if (!extrasBundle.isEmpty()) {

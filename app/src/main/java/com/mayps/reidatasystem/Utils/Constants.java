@@ -248,7 +248,7 @@ public class Constants {
     public static final String REPAIRS_TABLE = "Repair";
     public static final String REPAIR_ID = "_id";
     public static final String REPAIR_PROPERTY_ID = "PropertyId";
-    public static final String REPAIR_REPAIR_TYPE_ID = "PropertyTypeId";
+    public static final String REPAIR_REPAIR_TYPE_ID = "RepairTypeId";
     public static final String REPAIR_OTHER_DESCRIPTION = "RepairDescription";
     public static final String REPAIR_SORT_COLUMN = "RepairDescription";
 

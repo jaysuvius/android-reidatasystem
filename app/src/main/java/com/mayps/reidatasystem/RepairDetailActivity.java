@@ -36,8 +36,8 @@ public class RepairDetailActivity extends AppCompatActivity {
     private long id;
     private long propertyId;
     private AwesomeValidation validator = new AwesomeValidation(ValidationStyle.BASIC);
-    private RepairController rc = new RepairController(getApplicationContext());
-    private RepairTypeController rtc = new RepairTypeController(getApplicationContext());
+    private RepairController rc;
+    private RepairTypeController rtc;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,6 +110,7 @@ public class RepairDetailActivity extends AppCompatActivity {
     private void getInputs(){
         repair_type_spinner = findViewById(R.id.repair_type_spinner);
         repair_description_input = findViewById(R.id.repair_description_input);
+        rtc = new RepairTypeController(getApplicationContext());
         List<RepairType> types = rtc.getAll();
         ArrayAdapter<RepairType> typeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, types);
         repair_type_spinner.setAdapter(typeAdapter);

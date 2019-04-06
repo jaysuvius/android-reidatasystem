@@ -261,11 +261,11 @@ public class PropertyDetailActivity extends AppCompatActivity {
         evaluator_input = findViewById(R.id.evaluator_input);
         arv_input = findViewById(R.id.arv_input);
         repair_cost_input = findViewById(R.id.repair_cost_input);
-        validator.addValidation(offer_1_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(repair_cost_input, "^(0|[1-9][0-9]*)$", "Numeric");
         likely_purchase_checkbox = findViewById(R.id.likely_purchase_checkbox);
         exit_strategy_input = findViewById(R.id.exit_strategy_input);
         offer_1_input = findViewById(R.id.offer_1_input);
-        validator.addValidation(lot_size_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(offer_1_input, "^(0|[1-9][0-9]*)$", "Numeric");
         offer_2_input = findViewById(R.id.offer_2_input);
         validator.addValidation(offer_2_input, "^(0|[1-9][0-9]*)$", "Numeric");
     }

@@ -103,15 +103,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mayps.reidatasystem.MainActivity" />
         </activity>
-        <activity
-            android:name=".PropertyActivity"
-            android:label="@string/title_activity_property"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.mayps.reidatasystem.MainActivity" />
-        </activity>
+
         <activity
             android:name=".ContactsActivity"
             android:label="@string/title_activity_contacts"

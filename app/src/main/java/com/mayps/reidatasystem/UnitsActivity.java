@@ -73,15 +73,15 @@ public class UnitsActivity extends AppCompatActivity {
 
     public void fetch_units(){
 
-        UnitController cc = new UnitController(getApplicationContext());
+        UnitController uc = new UnitController(getApplicationContext());
 
         Bundle extrasBundle = getIntent().getExtras();
         if (!extrasBundle.isEmpty()) {
             property_id = extrasBundle.getLong("propertyId");
         }
 
-        Uri uri = Uri.parse("content://" + cc._provider.getAuthority() + "/" + cc._provider.get_table() + "/" + property_id);
-        units = cc.getByPropertyId(uri);
+        Uri uri = Uri.parse("content://" + uc._provider.getAuthority() + "/" + uc._provider.get_table() + "/" + property_id);
+        units = uc.getByPropertyId(uri);
 
         list = findViewById(R.id.units_listview);
 

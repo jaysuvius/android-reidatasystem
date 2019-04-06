@@ -8,7 +8,7 @@ import com.mayps.reidatasystem.Utils.Constants;
 public class UnitProvider extends DataProvider {
 
     private static UnitProvider sInstance;
-    private static String AUTHORITY = "com.mayps.reidatasystem.Dal.UnitProvider";
+    private static String AUTHORITY = "com.mayps.reidatasystem.DAL.UnitProvider";
     private Uri content_uri = Uri.parse("content://" + AUTHORITY);
     private static String _table = Constants.MULTI_UNITS_TABLE;
     private static String[] _allColumns = Constants.MULTI_UNIT_COLUMNS;
