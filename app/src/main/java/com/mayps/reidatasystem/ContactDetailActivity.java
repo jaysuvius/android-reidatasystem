@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -95,8 +96,8 @@ public class ContactDetailActivity extends AppCompatActivity {
 
                         public void onClick(DialogInterface dialog, int whichButton) {
                             Toast.makeText(ContactDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
-                            saveContact();
-                            goToAdressDetailIntent();
+                            if(saveContact())
+                                goToAdressDetailIntent();
                         }
                     })
                     .setNegativeButton(android.R.string.no, null).show();
@@ -149,6 +150,8 @@ public class ContactDetailActivity extends AppCompatActivity {
         contact_address_spinner = findViewById(R.id.contact_address_spinner);
         mobile_phone_input = findViewById(R.id.mobile_phone_input);
         work_phone_input = findViewById((R.id.work_phone_input));
+        email_input = findViewById((R.id.email_input));
+        validator.addValidation(email_input, Patterns.EMAIL_ADDRESS, "Valid Email Address");
         is_realtor_checkbox = findViewById(R.id.realtor_checkbox);
         is_title_checkbox = findViewById(R.id.title_checkbox);
         is_broker_checkbox = findViewById(R.id.broker_checkbox);
@@ -191,13 +194,14 @@ public class ContactDetailActivity extends AppCompatActivity {
         }
         mobile_phone_input.setText(contact.getMobile_phone());
         work_phone_input.setText(contact.getWork_phone());
+        email_input.setText(contact.getEmail_address());
         is_title_checkbox.setChecked(contact.is_title());
         is_realtor_checkbox.setChecked(contact.is_realtor());
         is_broker_checkbox.setChecked(contact.is_broker());
         licesnseNo.setText(contact.getRealtor_license());
     }
 
-    private void saveContact(){
+    private boolean saveContact(){
         if(validator.validate()){
             contact.setId(id);
             contact.setFirst_name(first_name_input.getText().toString());
@@ -214,7 +218,11 @@ public class ContactDetailActivity extends AppCompatActivity {
             contact.setRealtor_license(licesnseNo.getText().toString());
             if(cc.saveContact(contact))
                 Toast.makeText(ContactDetailActivity.this, "Saved Contact", Toast.LENGTH_LONG).show();
+            id=contact.getId();
+            return true;
         }
+        else
+            return false;
     }
 
     private void deleteContact(){

@@ -7,6 +7,7 @@ public class Repair extends Entity implements iEntity {
     private long property_id;
     private long repair_type_id;
     private String repair_description;
+    private RepairType repair_type;
 
     public Repair(){}
 
@@ -47,12 +48,15 @@ public class Repair extends Entity implements iEntity {
         this.repair_description = repair_description;
     }
 
+    public RepairType getRepair_type() {
+        return repair_type;
+    }
+
+    public void setRepair_type(RepairType repair_type) {
+        this.repair_type = repair_type;
+    }
     @Override
     public String toString() {
-        return "Repair{" +
-                "property_id=" + property_id +
-                ", repair_type_id=" + repair_type_id +
-                ", repair_description=" + repair_description +
-                '}';
+        return repair_description;
     }
 }

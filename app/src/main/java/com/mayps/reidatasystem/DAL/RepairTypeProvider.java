@@ -8,7 +8,7 @@ import com.mayps.reidatasystem.Utils.Constants;
 public class RepairTypeProvider extends DataProvider {
 
     private static RepairTypeProvider sInstance;
-    private static String AUTHORITY = "com.mayps.reidatasystem.Dal.RepairTypeProvider";
+    private static String AUTHORITY = "com.mayps.reidatasystem.DAL.RepairTypeProvider";
     private Uri content_uri = Uri.parse("content://" + AUTHORITY);
     private static String _table = Constants.REPAIR_TYPES_TABLE;
     private static String[] _allColumns = Constants.REPAIR_TYPE_COLUMNS;

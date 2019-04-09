@@ -112,7 +112,7 @@
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/mobilePhoneLabel"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="number|phone"
             android:text="Mobile Phone" />
 
         <TextView
@@ -158,7 +158,7 @@
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@+id/emailLabel"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:text="Email" />
 
         <CheckBox

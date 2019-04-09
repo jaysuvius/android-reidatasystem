@@ -107,15 +107,6 @@ public class Unit extends Entity implements iEntity {
 
     @Override
     public String toString() {
-        return "Unit{" +
-                "property_id=" + property_id +
-                ", unit_number='" + unit_number + '\'' +
-                ", sq_ft=" + sq_ft +
-                ", bedroom_count=" + bedroom_count +
-                ", bathroom_count=" + bathroom_count +
-                ", rent_amount=" + rent_amount +
-                ", is_occupied=" + is_occupied +
-                ", special_features='" + special_features + '\'' +
-                '}';
+        return unit_number;
     }
 }

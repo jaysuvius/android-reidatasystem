@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="41dp"
+            android:id="@+id/propertyReportTable">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/reportTitleReportLabel"
+                    android:layout_span="2"
+                    android:text="Property Report"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/timeStampReportLabel"
+                    android:layout_span="2"
+                    android:gravity="right"
+                    android:text="Timestamp"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/propertyTitleReportLabel"
+                    android:layout_span="4"
+                    android:text="Property"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/propertyNameLabel"
+                    android:layout_span="2"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Property Name" />
+
+                <TextView
+                    android:id="@+id/propertyNameValue"
+                    android:layout_span="2"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/addressNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Address" />
+
+                <TextView
+                    android:id="@+id/addressNameValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Address Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/styleNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Style" />
+
+                <TextView
+                    android:id="@+id/styleNameValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Style Value" />
+
+                <TextView
+                    android:id="@+id/sqftNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="SqFt" />
+
+                <TextView
+                    android:id="@+id/sqftNameValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="SqFt Value" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/lotSizeNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Lot Size" />
+
+                <TextView
+                    android:id="@+id/lotSizeValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Lot Size Value" />
+
+                <TextView
+                    android:id="@+id/yrBuiltNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Year Built" />
+
+                <TextView
+                    android:id="@+id/yrBuiltValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Year Value" />
+
+                <TextView
+                    android:id="@+id/hoaFeesNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="HOA Fees" />
+
+                <TextView
+                    android:id="@+id/hoaFeesValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/isMultiNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Multi Unit" />
+
+                <TextView
+                    android:id="@+id/_report_multi_Value"
+                    android:text="Is Multi" />
+
+                <TextView
+                    android:id="@+id/isOccupiedNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Occupied" />
+                <TextView
+                    android:id="@+id/report_is_occupied_Value"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/isOwnerOccupiedNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Owner Ocupied" />
+
+                <TextView
+                    android:id="@+id/report_owner_occupied_Value"
+                    android:layout_span="2"
+                    android:text="Owner Occupied" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/featuresNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Features" />
+
+                <TextView
+                    android:id="@+id/featuresValue"
+                    android:layout_span="3"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Values" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/upgradesNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Upgrades" />
+
+                <TextView
+                    android:id="@+id/upgradesValue"
+                    android:layout_span="3"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Values" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/listedLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Is Listed" />
+
+                <TextView
+                    android:id="@+id/is_listed_value"
+                    android:text="Listed" />
+
+                <TextView
+                    android:id="@+id/listingDateNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Listing Date" />
+
+                <TextView
+                    android:id="@+id/listingDateValue"
+                    android:layout_span="2"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Values" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/otherOffersNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Other Offers" />
+
+                <TextView
+                    android:id="@+id/report_other_offers_value"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/offerAmountNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Offer Amount" />
+
+                <TextView
+                    android:id="@+id/offerAmountValue"
+                    android:layout_span="2"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Values" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/realtorNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Realtor" />
+
+                <TextView
+                    android:id="@+id/realtorNameValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/realtorNumberNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Realtor Phone" />
+
+                <TextView
+                    android:id="@+id/realtorNumberValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/reasonNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Reason" />
+
+                <TextView
+                    android:id="@+id/reasonValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/timeFramerNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Time Frame" />
+
+                <TextView
+                    android:id="@+id/timeFramerValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/noSellContNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="No Sell Contingency" />
+
+                <TextView
+                    android:id="@+id/noSellContValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/mortAmountNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Mortgage Amt" />
+
+                <TextView
+                    android:id="@+id/mortAmountValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/hasLiensLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Has Lien" />
+
+                <TextView
+                    android:id="@+id/has_liens_Value"
+                    android:text="Liens" />
+
+                <TextView
+                    android:id="@+id/otherLienLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Other Lien" />
+
+                <TextView
+                    android:id="@+id/otherLienValue"
+                    android:layout_span="2"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/paymentCurrentBoolNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Months Behind" />
+
+                <TextView
+                    android:id="@+id/payment_current_report_value"
+                    android:text="Behind" />
+
+                <TextView
+                    android:id="@+id/monthsBehindNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Months Behind" />
+
+                <TextView
+                    android:id="@+id/monthsBehindValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="value" />
+
+                <TextView
+                    android:id="@+id/amountBehindNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Amount Behind" />
+
+                <TextView
+                    android:id="@+id/amountBehindValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/taxAmountNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Tax Amount" />
+
+                <TextView
+                    android:id="@+id/taxAmountValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/backTaxesNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Back Taxes" />
+
+                <TextView
+                    android:id="@+id/backTaxesValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/monthlyPaymentNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="MonthlyPayment" />
+
+                <TextView
+                    android:id="@+id/monthlyPaymentValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/insurancAmountNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Insurance Amount" />
+
+                <TextView
+                    android:id="@+id/insuranceAmountValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/fixedInterestLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/fixed_interest_report_textView"
+                    android:text="Fixed Interest" />
+
+                <TextView
+                    android:id="@+id/intrest1NameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="First Rate" />
+
+                <TextView
+                    android:id="@+id/interest1Value"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="value" />
+
+                <TextView
+                    android:id="@+id/interest2NameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Second Rate" />
+
+                <TextView
+                    android:id="@+id/interest2Value"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/askingPriceNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Asking Price" />
+
+                <TextView
+                    android:id="@+id/askingPriceValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/paymentPenaltyNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Payment Penalty" />
+
+                <TextView
+                    android:id="@+id/paymentPenaltyValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/mortgageCompany1NameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Mortgage Co 1" />
+
+                <TextView
+                    android:id="@+id/mortgageCompany1Value"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/mortgageCompany2NameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Mortgage Co 2" />
+
+                <TextView
+                    android:id="@+id/mortgageCompany2Value"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/pis_flexible_report_Label"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Is Flexible" />
+
+                <TextView
+                    android:id="@+id/is_flexible_report_vaiue"
+                    android:text="Is Flexible" />
+
+                <TextView
+                    android:id="@+id/priceDerivedNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="How Price Derived" />
+
+                <TextView
+                    android:id="@+id/priceDerivedValue"
+                    android:layout_span="2"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Values" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bestPriceFastCloseNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Best Price Fast Close" />
+
+                <TextView
+                    android:id="@+id/bestPriceFastCloseValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/bottomPriceNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Bottom Price" />
+
+                <TextView
+                    android:id="@+id/bottomPriceValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/accept_QuicklyLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Accept Quick" />
+
+                <TextView
+                    android:id="@+id/_report_accept_quickly_textView"
+                    android:text="Accept Quick" />
+
+                <TextView
+                    android:id="@+id/subject_to_report_label"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Subject To" />
+
+
+                <TextView
+                    android:id="@+id/subject_to_report_value"
+                    android:text="Subject To" />
+
+
+                <TextView
+                    android:id="@+id/likewly_purchase_report_label"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/report_likely_purchase_value"
+                    android:layout_span="2"
+                    android:text="Likely Purchase" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/repairCostNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Best Price Fast Close" />
+
+                <TextView
+                    android:id="@+id/repairCostValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/arvNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Arv" />
+
+                <TextView
+                    android:id="@+id/arvValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/offer1NameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Offer 1" />
+
+                <TextView
+                    android:id="@+id/offer1Value"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/offer2NameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Offer 2" />
+
+                <TextView
+                    android:id="@+id/offer2Value"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/exitStrategyNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Exit Strategy" />
+
+                <TextView
+                    android:id="@+id/exitStrategyValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+                <TextView
+                    android:id="@+id/evaluatorNameLabel"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Evaluator" />
+
+                <TextView
+                    android:id="@+id/evaluatorValue"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/RepairsTitleTableLabel"
+                    android:layout_span="5"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableLayout
+                    android:id="@+id/RepairTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/RepairTypeColumnLabel"
+                            android:layout_span="5"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="RepairType" />
+
+                        <TextView
+                            android:id="@+id/RepairDescColumnLabel"
+                            android:layout_span="5"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="Repair Desc" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/UnitsTitleTableLabel"
+                    android:layout_span="5"
+                    android:gravity="left"
+                    android:padding="2dip"
+                    android:text="Value" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableLayout
+                    android:id="@+id/UnitTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/UnitColumnLabel"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="Unit" />
+
+                        <TextView
+                            android:id="@+id/SqFtColumnLabel"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="Sq Ft" />
+
+                        <TextView
+                            android:id="@+id/BedsColumnLabel"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="Beds" />
+
+                        <TextView
+                            android:id="@+id/BathsColumnLabel"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="Baths" />
+
+                        <TextView
+                            android:id="@+id/AmountColumnLabel"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="Rent" />
+
+                        <TextView
+                            android:id="@+id/OccupiedColumnLabel"
+                            android:gravity="left"
+                            android:padding="2dip"
+                            android:text="Occupied" />
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </TableRow>
+
+
+        </TableLayout>
+</android.support.constraint.ConstraintLayout>

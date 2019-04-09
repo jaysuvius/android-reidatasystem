@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/RepairTypeColumnValue"
+            android:layout_span="5"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="RepairType" />
+
+        <TextView
+            android:id="@+id/RepairDescColumnValue"
+            android:layout_span="5"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="Repair Desc" />
+
+    </TableRow>
+
+</android.support.constraint.ConstraintLayout>

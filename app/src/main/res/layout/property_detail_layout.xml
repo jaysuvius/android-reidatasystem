@@ -115,7 +115,7 @@
             android:layout_toRightOf="@+id/styleLabel"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="99.9" />
+            android:text="0" />
 
         <TextView
             android:id="@+id/lotSizeLabel"
@@ -141,7 +141,7 @@
             android:layout_toRightOf="@+id/lotSizeLabel"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="99.9" />
+            android:text="0" />
 
         <TextView
             android:id="@+id/yearBuiltLabel"
@@ -167,7 +167,7 @@
             android:layout_toRightOf="@+id/yearBuiltLabel"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="99.9" />
+            android:text="0" />
 
         <TextView
             android:id="@+id/hoaFeesLabel"
@@ -193,7 +193,7 @@
             android:layout_toRightOf="@+id/hoaFeesLabel"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:text="99.9" />
+            android:text="0" />
 
         <CheckBox
             android:id="@+id/multi_checkbox"
@@ -325,7 +325,7 @@
             android:layout_toRightOf="@+id/listingDateLabel"
             android:ems="10"
             android:inputType="date"
-            android:text="01/01/1001" />
+            android:text="01/01/2019" />
 
         <CheckBox
             android:id="@+id/other_offers_checkbox"
@@ -364,7 +364,7 @@
             android:layout_toRightOf="@+id/offerAmountLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
         <TextView
             android:id="@+id/realtorLabel"
@@ -415,8 +415,8 @@
             android:layout_toEndOf="@+id/realtorPhoneLabel"
             android:layout_toRightOf="@+id/realtorPhoneLabel"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Realtor Phone" />
+            android:inputType="number|phone"
+            android:text="" />
 
 
         <TextView
@@ -469,7 +469,7 @@
             android:layout_toRightOf="@+id/timeFrameLabel"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Reason" />
+            android:text="Time Frame" />
 
         <TextView
             android:id="@+id/noSellContLabel"
@@ -521,7 +521,7 @@
             android:layout_toRightOf="@+id/mortgageAmountLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
         <CheckBox
             android:id="@+id/has_liens_checkbox"
@@ -610,7 +610,7 @@
             android:layout_toRightOf="@+id/amountBehindLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="12,000" />
+            android:text="12000" />
 
         <TextView
             android:id="@+id/backTaxesLabel"
@@ -662,7 +662,7 @@
             android:layout_toRightOf="@+id/otherLienLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="12,000" />
+            android:text="12000" />
 
         <TextView
             android:id="@+id/monthlyPaymentLabel"
@@ -688,7 +688,7 @@
             android:layout_toRightOf="@+id/monthlyPaymentLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="12,000" />
+            android:text="12000" />
 
         <TextView
             android:id="@+id/taxAmountLabel"
@@ -714,7 +714,7 @@
             android:layout_toRightOf="@+id/taxAmountLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="12,000" />
+            android:text="12000" />
 
         <TextView
             android:id="@+id/insuranceAmountLabel"
@@ -740,7 +740,7 @@
             android:layout_toRightOf="@+id/insuranceAmountLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="12,000" />
+            android:text="12000" />
 
         <CheckBox
             android:id="@+id/fixed_interest_checkbox"
@@ -831,7 +831,7 @@
             android:layout_toRightOf="@+id/paymentPenaltyLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="12,000" />
+            android:text="12000" />
 
         <TextView
             android:id="@+id/mortgageCompany1Label"
@@ -909,7 +909,7 @@
             android:layout_toRightOf="@+id/askingPriceLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="12,000" />
+            android:text="12000" />
 
         <CheckBox
             android:id="@+id/flexible_checkbox"
@@ -974,7 +974,7 @@
             android:layout_toRightOf="@+id/bestPriceFastCloseLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
         <TextView
             android:id="@+id/bottomPriceLabel"
@@ -1000,7 +1000,7 @@
             android:layout_toRightOf="@+id/bottomPriceLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
         <CheckBox
             android:id="@+id/subject_to_checkbox"
@@ -1037,7 +1037,7 @@
             android:layout_marginStart="18dp"
             android:layout_marginLeft="18dp"
             android:layout_marginTop="40dp"
-            android:text="Bottom Price" />
+            android:text="Evaluator" />
 
         <EditText
             android:id="@+id/evaluator_input"
@@ -1077,7 +1077,7 @@
             android:layout_toRightOf="@+id/arvLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
         <TextView
             android:id="@+id/repairCostLabel"
@@ -1103,7 +1103,7 @@
             android:layout_toRightOf="@+id/repairCostLabel"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
         <CheckBox
             android:id="@+id/likely_purchase_checkbox"
@@ -1168,7 +1168,7 @@
             android:layout_toRightOf="@+id/offer1Label"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
         <TextView
             android:id="@+id/offer2Label"
@@ -1194,7 +1194,7 @@
             android:layout_toRightOf="@+id/offer2Label"
             android:ems="10"
             android:inputType="number"
-            android:text="100,000" />
+            android:text="100000" />
 
 
     </RelativeLayout>

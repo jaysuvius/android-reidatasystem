@@ -26,8 +26,6 @@ public class RepairType extends Entity implements iEntity {
 
     @Override
     public String toString() {
-        return "RepairType{" +
-                "repair_type_description='" + repair_type_description + '\'' +
-                '}';
+        return repair_type_description;
     }
 }

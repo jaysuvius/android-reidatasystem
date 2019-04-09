@@ -118,6 +118,8 @@ public class RepairDetailActivity extends AppCompatActivity {
 
     private void newRepair(){
         repair = new Repair();
+        id = 0;
+        repair.setId(0);
         repair.setProperty_id(propertyId);
         repair_type_spinner.setSelection(0);
         repair_description_input.setText("");
@@ -128,7 +130,7 @@ public class RepairDetailActivity extends AppCompatActivity {
         propertyId = repair.getProperty_id();
         repair_description_input.setText(repair.getRepair_description());
         for (int i =0; i<repair_type_spinner.getCount(); i++){
-            if(((Repair)repair_type_spinner.getItemAtPosition(i)).getId() == repair.getProperty_id()){
+            if(((RepairType)repair_type_spinner.getItemAtPosition(i)).getId() == repair.getProperty_id()){
                 repair_type_spinner.setSelection(i);
             }
         }
@@ -140,9 +142,10 @@ public class RepairDetailActivity extends AppCompatActivity {
             repair.setId(id);
             repair.setProperty_id(propertyId);
             repair.setRepair_description(repair_description_input.getText().toString());
-            repair.setRepair_type_id(((Repair)repair_type_spinner.getSelectedItem()).getId());
+            repair.setRepair_type_id(((RepairType)repair_type_spinner.getSelectedItem()).getId());
             if (rc.saveRepair(repair))
                 Toast.makeText(RepairDetailActivity.this, "Saved Repair", Toast.LENGTH_LONG).show();
+            id=repair.getId();
         }
     }
 

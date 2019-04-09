@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/UnitValueColumnLabel"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="Unit" />
+
+        <TextView
+            android:id="@+id/SqFtValueColumnLabel"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="Sq Ft" />
+
+        <TextView
+            android:id="@+id/BedsValueColumnLabel"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="Beds" />
+
+        <TextView
+            android:id="@+id/BathValueColumnLabel"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="Baths" />
+
+        <TextView
+            android:id="@+id/AmountValueColumnLabel"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="Rent" />
+
+        <TextView
+            android:id="@+id/OccupiedValueColumnLabel"
+            android:gravity="left"
+            android:padding="2dip"
+            android:text="Occupied" />
+
+    </TableRow>
+
+</android.support.constraint.ConstraintLayout>

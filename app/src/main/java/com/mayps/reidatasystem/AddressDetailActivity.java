@@ -116,6 +116,7 @@ public class AddressDetailActivity extends AppCompatActivity {
         city_input.setText("");
         state_input.setText("");
         zip_input.setText("");
+        county_input.setText("");
     }
 
     private void fetchAddress(){
@@ -139,6 +140,7 @@ public class AddressDetailActivity extends AppCompatActivity {
             address.setCounty(county_input.getText().toString());
             if(ac.saveAddress(address))
                 Toast.makeText(AddressDetailActivity.this, "Saved Address", Toast.LENGTH_LONG).show();
+            id=address.getId();
         }
 
     }

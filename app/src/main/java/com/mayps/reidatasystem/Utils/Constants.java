@@ -331,6 +331,7 @@ public class Constants {
             MULTI_UNIT_PROPERTY_ID,
             MULTI_UNIT_UNIT_NUMBER,
             MULTI_UNIT_SQ_FT,
+            MULTI_UNIT_BEDROOM_COUNT,
             MULTI_UNIT_BATHROOM_COUNT,
             MULTI_UNIT_RENT_AMOUNT,
             MULTI_UNIT_IS_OCCUPIED,

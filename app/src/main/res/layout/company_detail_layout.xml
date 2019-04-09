@@ -119,8 +119,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:inputType="text"
-            android:text="Phone" />
+            android:inputType="number|phone"
+            android:text="" />
 
         <TextView
             android:id="@+id/faxLabel"
@@ -141,8 +141,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Fax" />
+            android:inputType="number|phone"
+            android:text="" />
 
         <TextView
             android:id="@+id/emailLabel"

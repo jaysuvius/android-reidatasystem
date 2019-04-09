@@ -109,8 +109,8 @@ public class CompanyDetailActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Toast.makeText(CompanyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
-                        saveCompany();
-                        goToContactDetailIntent();
+                        if(saveCompany())
+                            goToContactDetailIntent();
                     }
                 })
                 .setNegativeButton(android.R.string.no, null).show();
@@ -132,8 +132,8 @@ public class CompanyDetailActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Toast.makeText(CompanyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
-                        saveCompany();
-                        goToAddressDetailIntent();
+                        if(saveCompany())
+                            goToAddressDetailIntent();
                     }
                 })
                 .setNegativeButton(android.R.string.no, null).show();
@@ -219,7 +219,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
 
         validator.addValidation(phone_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
         validator.addValidation(fax_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
-        validator.addValidation(phone_input, Patterns.EMAIL_ADDRESS, "Valid Email Address");
+        validator.addValidation(email_input, Patterns.EMAIL_ADDRESS, "Valid Email Address");
     }
 
 
@@ -268,6 +268,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
     private void newCompany(){
         if(company == null) company = new Company();
         company.setId(0);
+        id=0;
         company_name_input.setText("");
         company_type_spinner.setSelection(0);
         company.setAddress_id(0);
@@ -277,7 +278,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
         email_input.setText("");
     }
 
-    private void saveCompany(){
+    private boolean saveCompany(){
         if(validator.validate()){
             company.setId(id);
             company.setCompany_name(company_name_input.getText().toString());
@@ -289,7 +290,11 @@ public class CompanyDetailActivity extends AppCompatActivity {
             company.setEmail_address(email_input.getText().toString());
             if(cc.saveCompany(company))
                 Toast.makeText(CompanyDetailActivity.this, "Saved Company", Toast.LENGTH_LONG).show();
+            id=company.getId();
+            return true;
         }
+        else
+            return false;
 
     }
 

@@ -3,15 +3,21 @@ package com.mayps.reidatasystem;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.print.PrintAttributes;
+import android.print.pdf.PrintedPdfDocument;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -25,6 +31,9 @@ import com.mayps.reidatasystem.Controllers.PropertyController;
 import com.mayps.reidatasystem.Models.Address;
 import com.mayps.reidatasystem.Models.Property;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 public class PropertyDetailActivity extends AppCompatActivity {
@@ -116,10 +125,13 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 launch_address();
                 break;
             case R.id.view_repairs:
-                launch_repairs();
+                launch_repair_intent();
                 break;
             case R.id.view_units:
-                launch_units();
+                launch_unit_intent();
+                break;
+            case R.id.gen_report:
+                gen_report();
                 break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
@@ -130,6 +142,34 @@ public class PropertyDetailActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void gen_report(){
+        String extstoragedir = Environment.getExternalStorageDirectory().toString();
+        File fol = new File(extstoragedir, "pdf");
+        File folder=new File(fol,"pdf");
+        if(!folder.exists()) {
+            boolean bool = folder.mkdir();
+        }
+        try{
+            final File file = new File(folder, "report.pdf");
+            file.createNewFile();
+            FileOutputStream fOut = new FileOutputStream(file);
+
+            PrintAttributes.Builder att = new PrintAttributes.Builder();
+            att.setColorMode(PrintAttributes.COLOR_MODE_COLOR);
+            PrintedPdfDocument document = new PrintedPdfDocument(this, att.build());
+            PdfDocument.Page page = document.startPage(0);
+
+            View content = findViewById(android.R.id.content);
+            content.draw(page.getCanvas());
+
+            document.finishPage(page);
+
+            document.writeTo(fOut);
+        }catch (IOException e){
+            Log.i("error",e.getLocalizedMessage());
+        }
+    }
+
     private void launch_repairs(){
         Intent intent = new Intent(this, RepairsActivity.class);
         intent.putExtra("id", 0);
@@ -137,11 +177,43 @@ public class PropertyDetailActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void launch_repair_intent(){
+        new AlertDialog.Builder(this)
+                .setTitle("Property must be saved to add repairs")
+                .setMessage("Save??")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(PropertyDetailActivity.this, "Save Property First", Toast.LENGTH_LONG).show();
+                        if(save_property())
+                            launch_repairs();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null).show();
+    }
+
     private void launch_units(){
         Intent intent = new Intent(this, UnitsActivity.class);
         intent.putExtra("id", 0);
         intent.putExtra("propertyId", id);
         startActivity(intent);
+    }
+
+    private void launch_unit_intent(){
+        new AlertDialog.Builder(this)
+                .setTitle("Property must be saved to add units")
+                .setMessage("Save??")
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Toast.makeText(PropertyDetailActivity.this, "Save Property First", Toast.LENGTH_LONG).show();
+                        if(save_property())
+                            launch_units();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null).show();
     }
 
     private void goToAddressDetailIntent() {
@@ -159,8 +231,8 @@ public class PropertyDetailActivity extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Toast.makeText(PropertyDetailActivity.this, "Save Contact First", Toast.LENGTH_LONG).show();
-                        save_property();
-                        goToAddressDetailIntent();
+                        if(save_property())
+                            goToAddressDetailIntent();
                     }
                 })
                 .setNegativeButton(android.R.string.no, null).show();
@@ -213,7 +285,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
         listing_date_input = findViewById(R.id.listing_date_input);
         other_offers_checkbox = findViewById(R.id.other_offers_checkbox);
         offer_amount_input = findViewById(R.id.offer_amount_input);
-        validator.addValidation(offer_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(offer_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         realtor_input = findViewById(R.id.realtor_input);
         realtor_phone_input = findViewById(R.id.realtor_phone_input);
         validator.addValidation(realtor_phone_input, "^(0|[1-9][0-9]*)$", "Numeric");
@@ -221,7 +293,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
         time_frame_input = findViewById(R.id.time_frame_input);
         no_sell_cont_input = findViewById(R.id.no_sell_cont_input);
         mortgage_amount_input = findViewById(R.id.mortgage_amount_input);
-        validator.addValidation(mortgage_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(mortgage_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         has_liens_checkbox = findViewById(R.id.has_liens_checkbox);
         multiple_mortgages_checkbox = findViewById(R.id.multiple_mortgages_checkbox);
         payment_current_checkbox = findViewById(R.id.payment_current_checkbox);
@@ -229,45 +301,46 @@ public class PropertyDetailActivity extends AppCompatActivity {
         validator.addValidation(months_behind_input, "^(0|[1-9][0-9]*)$", "Numeric");
         amount_behind_input = findViewById(R.id.amount_behind_input);
         back_taxes_input = findViewById(R.id.back_taxes_input);
-        validator.addValidation(amount_behind_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(amount_behind_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         other_lien_input = findViewById(R.id.other_lien_input);
-        validator.addValidation(other_lien_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(other_lien_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         monthly_payment_input = findViewById(R.id.monthly_payment_input);
-        validator.addValidation(monthly_payment_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(monthly_payment_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         tax_amount_input = findViewById(R.id.tax_amount_input);
-        validator.addValidation(tax_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(tax_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         insurance_amount_input = findViewById(R.id.insurance_amount_input);
-        validator.addValidation(insurance_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(insurance_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         fixed_interest_checkbox = findViewById(R.id.fixed_interest_checkbox);
         interest_1_input = findViewById(R.id.interest_1_input);
-        validator.addValidation(interest_1_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(interest_1_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         interest_2_input = findViewById(R.id.interest_2_input);
-        validator.addValidation(interest_2_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(interest_2_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         payment_penalty_input = findViewById(R.id.payment_penalty_input);
-        validator.addValidation(payment_penalty_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(payment_penalty_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         mortgage_company_1_input = findViewById(R.id.mortgage_company_1_input);
         mortgage_company_2_input = findViewById(R.id.mortgage_company_2_input);
         asking_price_input = findViewById(R.id.asking_price_input);
-        validator.addValidation(asking_price_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(asking_price_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         flexible_checkbox = findViewById(R.id.flexible_checkbox);
         price_derived_input = findViewById(R.id.price_derived_input);
-        validator.addValidation(price_derived_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(price_derived_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         best_price_fast_close_input = findViewById(R.id.best_price_fast_close_input);
-        validator.addValidation(best_price_fast_close_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(best_price_fast_close_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         bottom_price_input = findViewById(R.id.bottom_price_input);
-        validator.addValidation(bottom_price_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(bottom_price_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         subject_to_checkbox = findViewById(R.id.subject_to_checkbox);
         accept_quickly_checkbox = findViewById(R.id.accept_quickly_checkbox);
         evaluator_input = findViewById(R.id.evaluator_input);
         arv_input = findViewById(R.id.arv_input);
+        validator.addValidation(arv_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         repair_cost_input = findViewById(R.id.repair_cost_input);
-        validator.addValidation(repair_cost_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(repair_cost_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         likely_purchase_checkbox = findViewById(R.id.likely_purchase_checkbox);
         exit_strategy_input = findViewById(R.id.exit_strategy_input);
         offer_1_input = findViewById(R.id.offer_1_input);
-        validator.addValidation(offer_1_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(offer_1_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         offer_2_input = findViewById(R.id.offer_2_input);
-        validator.addValidation(offer_2_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(offer_2_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
     }
 
     public void fetch_property(){
@@ -335,6 +408,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
     public void new_property(){
         property = new Property();
         property.setId(0);
+        id=0;
         property_name_input.setText("");
         property_address_spinner.setSelection(0);
         style_input.setText("");
@@ -388,7 +462,7 @@ public class PropertyDetailActivity extends AppCompatActivity {
         offer_2_input.setText("");
     }
     
-    public void save_property(){
+    public boolean save_property(){
         if(validator.validate()){
             property.setProperty_name(property_name_input.getText().toString());
             property.setAddress_id(((Address)property_address_spinner.getSelectedItem()).getId());
@@ -441,8 +515,14 @@ public class PropertyDetailActivity extends AppCompatActivity {
             property.setExit_strategy(exit_strategy_input.getText().toString());
             property.setOffer_1(Double.parseDouble(offer_1_input.getText().toString()));
             property.setOffer_2(Double.parseDouble(offer_2_input.getText().toString()));
-            if(pc.saveProperty(property))
+            if(pc.saveProperty(property)){
                 Toast.makeText(PropertyDetailActivity.this, "Saved Property", Toast.LENGTH_LONG).show();
+                id=property.getId();
+            }
+            return true;
+        }
+        else{
+            return false;
         }
     }
 

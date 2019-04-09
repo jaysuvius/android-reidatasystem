@@ -1,6 +1,9 @@
 package com.mayps.reidatasystem;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         final Button addresses_button = findViewById(R.id.addresses_button);
         addresses_button.setOnClickListener((view -> launch_addresses_activity(view)));
+
+        final Button property_report_button = findViewById(R.id.property_report_button);
+        property_report_button.setOnClickListener((view -> launch_properties_report_activity(view)));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -66,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launch_properties_activity(View view){
+
         Intent intent = new Intent(this, PropertiesActivity.class);
         startActivity(intent);
     }
@@ -75,5 +84,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    public void launch_properties_report_activity(View view){
+        Intent intent = new Intent(this, PropertyReportActivity.class);
+        startActivity(intent);
+    }
 
 }

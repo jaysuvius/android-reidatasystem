@@ -126,6 +126,8 @@ public class UnitDetailActivity extends AppCompatActivity {
     
     private void newUnit(){
         unit = new Unit();
+        unit.setId(0);
+        id=0;
         unit.setProperty_id(propertyId);
         unit_number_input.setText("");
         bedroom_count_intput.setText("");
@@ -138,8 +140,8 @@ public class UnitDetailActivity extends AppCompatActivity {
     private void fetchUnit(){
         propertyId = unit.getProperty_id();
         unit_number_input.setText(unit.getUnit_number());
-        bedroom_count_intput.setText(unit.getBedroom_count());
-        bathroom_count_input.setText(unit.getBathroom_count());
+        bedroom_count_intput.setText(Integer.toString(unit.getBedroom_count()));
+        bathroom_count_input.setText(Integer.toString(unit.getBathroom_count()));
         rent_amount_input.setText(Double.toString(unit.getRent_amount()));
         is_occupied_input.setChecked(unit.is_occupied());
         special_features_input.setText(unit.getSpecial_features());
@@ -151,6 +153,7 @@ public class UnitDetailActivity extends AppCompatActivity {
             unit.setId(id);
             unit.setProperty_id(propertyId);
             unit.setUnit_number(unit_number_input.getText().toString());
+            unit.setSq_ft(Integer.parseInt(sq_ft_input.getText().toString()));
             unit.setBedroom_count(Integer.parseInt(bedroom_count_intput.getText().toString()));
             unit.setBathroom_count(Integer.parseInt(bathroom_count_input.getText().toString()));
             unit.setRent_amount(Double.parseDouble(rent_amount_input.getText().toString()));
@@ -158,6 +161,7 @@ public class UnitDetailActivity extends AppCompatActivity {
             unit.setSpecial_features(special_features_input.getText().toString());
             if (uc.saveUnit(unit))
                 Toast.makeText(UnitDetailActivity.this, "Saved Unit", Toast.LENGTH_LONG).show();
+            id=unit.getId();
         }
     }
 
