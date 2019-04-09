@@ -7,252 +7,256 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="55dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/firstNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginTop="50dp"
-            android:text="First Name" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="55dp">
 
-        <EditText
-            android:id="@+id/first_name_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="30dp"
-            android:layout_toEndOf="@+id/firstNameLabel"
-            android:layout_toRightOf="@+id/firstNameLabel"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="First Name" />
+            <TextView
+                android:id="@+id/firstNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="50dp"
+                android:text="First Name" />
 
-        <TextView
-            android:id="@+id/lastNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/firstNameLabel"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="35dp"
-            android:text="Last Name" />
+            <EditText
+                android:id="@+id/first_name_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/firstNameLabel"
+                android:layout_toRightOf="@+id/firstNameLabel"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="First Name" />
 
-        <EditText
-            android:id="@+id/last_name_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/first_name_input"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/lastNameLabel"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Last Name" />
+            <TextView
+                android:id="@+id/lastNameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/firstNameLabel"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="35dp"
+                android:text="Last Name" />
 
-        <TextView
-            android:id="@+id/middleInitialLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lastNameLabel"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="45dp"
-            android:text="Middle" />
+            <EditText
+                android:id="@+id/last_name_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/first_name_input"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/lastNameLabel"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Last Name" />
 
-        <EditText
-            android:id="@+id/middle_initial_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/last_name_input"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@+id/middleInitialLabel"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Middle" />
+            <TextView
+                android:id="@+id/middleInitialLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lastNameLabel"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="45dp"
+                android:text="Middle" />
 
-        <TextView
-            android:id="@+id/contactAddressLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/middleInitialLabel"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="30dp"
-            android:text="Address" />
+            <EditText
+                android:id="@+id/middle_initial_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/last_name_input"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/middleInitialLabel"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Middle" />
 
-        <Button
-            android:id="@+id/select_contact_address_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/middle_initial_input"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/contactAddressLabel"
-            android:onClick="launch_contact_adresses_activity"
-            android:text="Select Address" />
+            <TextView
+                android:id="@+id/contactAddressLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/middleInitialLabel"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="30dp"
+                android:text="Address" />
 
-        <TextView
-            android:id="@+id/contactAddress1Label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/contactAddressLabel"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="40dp"
-            android:text="Address" />
+            <Button
+                android:id="@+id/select_contact_address_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/middle_initial_input"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/contactAddressLabel"
+                android:onClick="launch_contact_adresses_activity"
+                android:text="Select Address" />
 
-        <TextView
-            android:id="@+id/contactAddressText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/select_contact_address_button"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_toRightOf="@+id/contactAddress1Label"
-            android:text="Address" />
+            <TextView
+                android:id="@+id/contactAddress1Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactAddressLabel"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="40dp"
+                android:text="Address" />
 
-        <TextView
-            android:id="@+id/mobilePhoneLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/contactAddress1Label"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="35dp"
-            android:text="Mobile Phone" />
+            <TextView
+                android:id="@+id/contactAddressText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_contact_address_button"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/contactAddress1Label"
+                android:text="Address" />
 
-        <EditText
-            android:id="@+id/mobile_phone_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/contactAddressText"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/mobilePhoneLabel"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Mobile Phone" />
+            <TextView
+                android:id="@+id/mobilePhoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactAddress1Label"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="35dp"
+                android:text="Mobile Phone" />
 
-        <TextView
-            android:id="@+id/workPhoneLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mobilePhoneLabel"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="35dp"
-            android:text="Work Phone" />
+            <EditText
+                android:id="@+id/mobile_phone_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactAddressText"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/mobilePhoneLabel"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Mobile Phone" />
 
-        <EditText
-            android:id="@+id/work_phone_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mobile_phone_input"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/workPhoneLabel"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Work Phone" />
+            <TextView
+                android:id="@+id/workPhoneLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobilePhoneLabel"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="35dp"
+                android:text="Work Phone" />
 
-        <TextView
-            android:id="@+id/emailLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/workPhoneLabel"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="40dp"
-            android:text="Email" />
+            <EditText
+                android:id="@+id/work_phone_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobile_phone_input"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/workPhoneLabel"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Work Phone" />
 
-        <EditText
-            android:id="@+id/email_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/work_phone_input"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/emailLabel"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Email" />
+            <TextView
+                android:id="@+id/emailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/workPhoneLabel"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="40dp"
+                android:text="Email" />
 
-        <CheckBox
-            android:id="@+id/realtor_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/emailLabel"
-            android:layout_alignLeft="@+id/emailLabel"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:layout_below="@+id/emailLabel"
-            android:layout_marginTop="35dp"
-            android:text="Realtor" />
+            <EditText
+                android:id="@+id/email_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/work_phone_input"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/emailLabel"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Email" />
 
-        <CheckBox
-            android:id="@+id/broker_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/realtor_checkbox"
-            android:layout_below="@+id/emailLabel"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:layout_marginTop="35dp"
-            android:text="Broker" />
+            <CheckBox
+                android:id="@+id/realtor_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/emailLabel"
+                android:layout_alignLeft="@+id/emailLabel"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:layout_below="@+id/emailLabel"
+                android:layout_marginTop="35dp"
+                android:text="Realtor" />
 
-        <CheckBox
-            android:id="@+id/title_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/broker_checkbox"
-            android:layout_below="@+id/emailLabel"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:layout_marginTop="35dp"
-            android:text="Title" />
+            <CheckBox
+                android:id="@+id/broker_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/realtor_checkbox"
+                android:layout_below="@+id/emailLabel"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:layout_marginTop="35dp"
+                android:text="Broker" />
 
-        <TextView
-            android:id="@+id/licenseLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/realtor_checkbox"
-            android:layout_alignStart="@+id/firstNameLabel"
-            android:layout_alignLeft="@+id/firstNameLabel"
-            android:layout_marginTop="35dp"
-            android:text="License" />
+            <CheckBox
+                android:id="@+id/title_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/broker_checkbox"
+                android:layout_below="@+id/emailLabel"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:layout_marginTop="35dp"
+                android:text="Title" />
 
-        <EditText
-            android:id="@+id/license_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/realtor_checkbox"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/licenseLabel"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="License" />
+            <TextView
+                android:id="@+id/licenseLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/realtor_checkbox"
+                android:layout_alignStart="@+id/firstNameLabel"
+                android:layout_alignLeft="@+id/firstNameLabel"
+                android:layout_marginTop="35dp"
+                android:text="License" />
+
+            <EditText
+                android:id="@+id/license_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/realtor_checkbox"
+                android:layout_marginStart="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/licenseLabel"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="License" />
 
 
+        </RelativeLayout>
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

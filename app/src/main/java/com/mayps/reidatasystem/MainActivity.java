@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
         final Button property_report_button = findViewById(R.id.property_report_button);
         property_report_button.setOnClickListener((view -> launch_properties_report_activity(view)));
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
 
     }
 
