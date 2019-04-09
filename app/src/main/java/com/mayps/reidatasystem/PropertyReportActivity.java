@@ -2,8 +2,10 @@ package com.mayps.reidatasystem;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,6 +14,7 @@ import android.print.pdf.PrintedPdfDocument;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -24,10 +27,10 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mayps.reidatasystem.Controllers.AddressController;
 import com.mayps.reidatasystem.Controllers.PropertyController;
+import com.mayps.reidatasystem.Models.Address;
 import com.mayps.reidatasystem.Models.Property;
-import com.mayps.reidatasystem.Models.PropertyReport;
-
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -42,6 +45,7 @@ public class PropertyReportActivity extends AppCompatActivity {
 
     private static final int STORAGE_CODE = 1000;
     PropertyController pc;
+    AddressController ac;
     List<Property> properties;
     TableLayout propertyTable;
     ListView propertyList;
@@ -121,11 +125,22 @@ public class PropertyReportActivity extends AppCompatActivity {
 
             document.close();
 
+            viewPdf(myFile);
+
         }
         catch(IOException ex){
             Log.i("Export Pdf", "Pdf failed");
         }
         finish();
+    }
+
+    private void viewPdf(File file){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri pdfUri = FileProvider.getUriForFile(getApplicationContext(), getApplicationContext().getPackageName() + ".DAL.GenericFileProvider", file);
+        intent.setDataAndType(pdfUri, "application/pdf");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
     }
 
     @Override
@@ -156,8 +171,8 @@ public class PropertyReportActivity extends AppCompatActivity {
             timeStamp.setText(new Date().toString());
             TextView propertyNameValue = (TextView) tableView.findViewById(R.id.propertyNameValue);
             propertyNameValue.setText(p.getProperty_name());
-            //TextView addressNameValue = (TextView) tableView.findViewById(R.id.addressNameValue);
-            //addressNameValue.setText(p.getAddress().getAddress_1());
+            TextView addressNameValue = (TextView) tableView.findViewById(R.id.addressNameValue);
+            addressNameValue.setText(getAddress(p.getAddress_id()));
             TextView styleNameValue = (TextView) tableView.findViewById(R.id.styleNameValue);
             styleNameValue.setText(p.getStyle());
             TextView sqftNameValue = (TextView) tableView.findViewById(R.id.sqftNameValue);
@@ -259,6 +274,13 @@ public class PropertyReportActivity extends AppCompatActivity {
 //            TableLayout repairs = (TableLayout) tableView.findViewById(R.id.RepairTable);
 //            TableLayout UnitTable = (TableLayout) tableView.findViewById(R.id.UnitTable);
             return tableView;
+        }
+
+        private String getAddress(long addressId){
+            ac = new AddressController(getApplicationContext());
+            Uri uri = Uri.parse("content://" + pc._provider.getAuthority() + "/" + pc._provider.get_table() + "/" + addressId);
+            Address a = (Address) ac.getById(uri);
+            return a.getAddress_1();
         }
 
 }
