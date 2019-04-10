@@ -101,6 +101,11 @@ public class PropertyReportActivity extends AppCompatActivity {
                     attr.build());
 
             int pageNo = 0;
+            if(properties.isEmpty()){
+                Toast.makeText(this, "No properties to report.", Toast.LENGTH_SHORT);
+                finish();
+            }
+
             for(Property p : properties){
                 PdfDocument.Page page = document.startPage(pageNo);
 
