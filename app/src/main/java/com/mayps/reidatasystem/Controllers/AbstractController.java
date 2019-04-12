@@ -79,7 +79,7 @@ abstract class AbstractController<T extends  Entity> implements iController<T> {
     @Override
     public int Delete(T entity) {
         String selectionClause = "_id = " + entity.getId();
-        ContentValues cv = getContentValues(entity);
+//        ContentValues cv = getContentValues(entity);
         return _context.getContentResolver().delete(_provider.get_content_uri(), selectionClause, null);
     }
 

@@ -8,7 +8,7 @@ import com.mayps.reidatasystem.Utils.*;
 
 public class DbOpenHelper extends SQLiteOpenHelper {
     //Constants for db name and version
-    private static final String DATABASE_NAME = "TermManager.db";
+    private static final String DATABASE_NAME = "ReiDataSystem.db";
     private static final int DATABASE_VERSION = 1;
 
     //Constants for identifying table and columns

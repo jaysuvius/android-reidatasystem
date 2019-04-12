@@ -16,11 +16,4 @@
         android:title="View Units"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/gen_report"
-        android:orderInCategory="102"
-        android:title="Generate Report"
-        app:showAsAction="never" />
-
-
 </menu>

@@ -83,7 +83,6 @@ public class CompanyDetailActivity extends AppCompatActivity {
                 break;
             case R.id.action_delete:
                 deleteCompany();
-                newCompany();
                 break;
             case R.id.add_address:
                 launch_address();
@@ -201,16 +200,12 @@ public class CompanyDetailActivity extends AppCompatActivity {
         company_type_spinner = findViewById(R.id.company_type_spinner);
         address_spinner = findViewById(R.id.address_spinner);
         contact_spinner = findViewById(R.id.contact_spinner);
-        select_address_button = findViewById(R.id.select_address_button);
-        address1TextView = findViewById(R.id.address1Text);
-        select_contact_button = findViewById(R.id.select_contact_button);
-        contact1Text = findViewById(R.id.contact1Text);
         phone_input = findViewById(R.id.phone_input);
         fax_input = findViewById(R.id.fax_input);
         email_input = findViewById(R.id.email_input);
 
-        validator.addValidation(phone_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
-        validator.addValidation(fax_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
+        validator.addValidation(phone_input, "^[0-9]+[0-9]*$", "Numeric Only");
+        validator.addValidation(fax_input, "^[0-9]+[0-9]*$", "Numeric Only");
         validator.addValidation(email_input, Patterns.EMAIL_ADDRESS, "Valid Email Address");
     }
 
@@ -300,10 +295,15 @@ public class CompanyDetailActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         company.setId(id);
                         cc.Delete(company);
-                        newCompany();
+                        finish();
                         Toast.makeText(CompanyDetailActivity.this, "Deleted Course", Toast.LENGTH_LONG).show();
                     }})
                 .setNegativeButton(android.R.string.no, null).show();
+    }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putLong("id", id);
     }
 
     @Override

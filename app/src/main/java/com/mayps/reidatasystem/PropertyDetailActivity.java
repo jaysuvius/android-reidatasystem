@@ -119,7 +119,6 @@ public class PropertyDetailActivity extends AppCompatActivity {
                 break;
             case R.id.action_delete:
                 delete_property();
-                new_property();
                 break;
             case R.id.add_address:
                 launch_address();
@@ -130,9 +129,9 @@ public class PropertyDetailActivity extends AppCompatActivity {
             case R.id.view_units:
                 launch_unit_intent();
                 break;
-            case R.id.gen_report:
-                gen_report();
-                break;
+//            case R.id.gen_report:
+//                gen_report();
+//                break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -266,12 +265,16 @@ public class PropertyDetailActivity extends AppCompatActivity {
     protected  void getInputs(){
         property_name_input = findViewById(R.id.property_name_input);
         property_address_spinner = findViewById(R.id.property_address_spinner);
+        ac = new AddressController(getApplicationContext());
+        addresses = ac.getAll();
+        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+        property_address_spinner.setAdapter(addyAdapter);
         style_input = findViewById(R.id.style_input);
         sqft_input = findViewById(R.id.sqft_input);
         lot_size_input = findViewById(R.id.lot_size_input);
-        validator.addValidation(lot_size_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(lot_size_input, "^[0-9]+[0-9]*$", "Numeric");
         year_built_input = findViewById(R.id.year_built_input);
-        validator.addValidation(year_built_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(year_built_input, "^[0-9]+[0-9]*$", "Numeric");
         multi_checkbox = findViewById(R.id.multi_checkbox);
         is_occupied_checkbox = findViewById(R.id.is_occupied_checkbox);
         owner_occupied_checkbox = findViewById(R.id.owner_occupied_checkbox);
@@ -281,69 +284,65 @@ public class PropertyDetailActivity extends AppCompatActivity {
         listing_date_input = findViewById(R.id.listing_date_input);
         other_offers_checkbox = findViewById(R.id.other_offers_checkbox);
         offer_amount_input = findViewById(R.id.offer_amount_input);
-        validator.addValidation(offer_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(offer_amount_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         realtor_input = findViewById(R.id.realtor_input);
         realtor_phone_input = findViewById(R.id.realtor_phone_input);
-        validator.addValidation(realtor_phone_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(realtor_phone_input, "^[0-9]+[0-9]*$", "Numeric");
         reason_selling_input = findViewById(R.id.reason_selling_input);
         time_frame_input = findViewById(R.id.time_frame_input);
         no_sell_cont_input = findViewById(R.id.no_sell_cont_input);
         mortgage_amount_input = findViewById(R.id.mortgage_amount_input);
-        validator.addValidation(mortgage_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(mortgage_amount_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         has_liens_checkbox = findViewById(R.id.has_liens_checkbox);
         multiple_mortgages_checkbox = findViewById(R.id.multiple_mortgages_checkbox);
         payment_current_checkbox = findViewById(R.id.payment_current_checkbox);
         months_behind_input = findViewById(R.id.months_behind_input);
-        validator.addValidation(months_behind_input, "^(0|[1-9][0-9]*)$", "Numeric");
+        validator.addValidation(months_behind_input, "^[0-9]+[0-9]*$", "Numeric");
         amount_behind_input = findViewById(R.id.amount_behind_input);
         back_taxes_input = findViewById(R.id.back_taxes_input);
-        validator.addValidation(amount_behind_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(amount_behind_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         other_lien_input = findViewById(R.id.other_lien_input);
-        validator.addValidation(other_lien_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(other_lien_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         monthly_payment_input = findViewById(R.id.monthly_payment_input);
-        validator.addValidation(monthly_payment_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(monthly_payment_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         tax_amount_input = findViewById(R.id.tax_amount_input);
-        validator.addValidation(tax_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(tax_amount_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         insurance_amount_input = findViewById(R.id.insurance_amount_input);
-        validator.addValidation(insurance_amount_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(insurance_amount_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         fixed_interest_checkbox = findViewById(R.id.fixed_interest_checkbox);
         interest_1_input = findViewById(R.id.interest_1_input);
-        validator.addValidation(interest_1_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(interest_1_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         interest_2_input = findViewById(R.id.interest_2_input);
-        validator.addValidation(interest_2_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(interest_2_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         payment_penalty_input = findViewById(R.id.payment_penalty_input);
-        validator.addValidation(payment_penalty_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(payment_penalty_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         mortgage_company_1_input = findViewById(R.id.mortgage_company_1_input);
         mortgage_company_2_input = findViewById(R.id.mortgage_company_2_input);
         asking_price_input = findViewById(R.id.asking_price_input);
-        validator.addValidation(asking_price_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(asking_price_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         flexible_checkbox = findViewById(R.id.flexible_checkbox);
         price_derived_input = findViewById(R.id.price_derived_input);
-        validator.addValidation(price_derived_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
         best_price_fast_close_input = findViewById(R.id.best_price_fast_close_input);
-        validator.addValidation(best_price_fast_close_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(best_price_fast_close_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         bottom_price_input = findViewById(R.id.bottom_price_input);
-        validator.addValidation(bottom_price_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(bottom_price_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         subject_to_checkbox = findViewById(R.id.subject_to_checkbox);
         accept_quickly_checkbox = findViewById(R.id.accept_quickly_checkbox);
         evaluator_input = findViewById(R.id.evaluator_input);
         arv_input = findViewById(R.id.arv_input);
-        validator.addValidation(arv_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(arv_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         repair_cost_input = findViewById(R.id.repair_cost_input);
-        validator.addValidation(repair_cost_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(repair_cost_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         likely_purchase_checkbox = findViewById(R.id.likely_purchase_checkbox);
         exit_strategy_input = findViewById(R.id.exit_strategy_input);
         offer_1_input = findViewById(R.id.offer_1_input);
-        validator.addValidation(offer_1_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(offer_1_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
         offer_2_input = findViewById(R.id.offer_2_input);
-        validator.addValidation(offer_2_input, "^[1-9]\\d*(\\.\\d+)?$", "Numeric");
+        validator.addValidation(offer_2_input, "^[0-9]\\d{0,9}(\\.\\d{1,2})?%?$", "Numeric");
     }
 
     public void fetch_property(){
-        ac = new AddressController(getApplicationContext());
-        addresses = ac.getAll();
-        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
-        property_address_spinner.setAdapter(addyAdapter);
+
         property_name_input.setText(property.getProperty_name());
         for(int i = 0; i < property_address_spinner.getCount(); i++){
             if(((Address)property_address_spinner.getItemAtPosition(i)).getId() == property.getAddress_id()){
@@ -457,8 +456,22 @@ public class PropertyDetailActivity extends AppCompatActivity {
         offer_1_input.setText("");
         offer_2_input.setText("");
     }
-    
+
     public boolean save_property(){
+        if(addyAdapter.getCount() == 0){
+            new AlertDialog.Builder(this)
+                    .setTitle("No Addresses Found")
+                    .setMessage("Add?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            goToAddressDetailIntent();
+                            Toast.makeText(PropertyDetailActivity.this, "Must Add Address", Toast.LENGTH_LONG).show();
+                        }})
+                    .setNegativeButton(android.R.string.no, null).show();
+            return false;
+        }
         if(validator.validate()){
             property.setProperty_name(property_name_input.getText().toString());
             property.setAddress_id(((Address)property_address_spinner.getSelectedItem()).getId());
@@ -532,10 +545,15 @@ public class PropertyDetailActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         property.setId(id);
                         pc.Delete(property);
-                        new_property();
+                        finish();
                         Toast.makeText(PropertyDetailActivity.this, "Deleted Property", Toast.LENGTH_LONG).show();
                     }})
                 .setNegativeButton(android.R.string.no, null).show();
+    }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putLong("id", id);
     }
 
     @Override

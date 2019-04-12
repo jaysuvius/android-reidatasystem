@@ -58,7 +58,6 @@ public class RepairDetailActivity extends AppCompatActivity {
                 break;
             case R.id.action_delete:
                 deleteRepair();
-                newRepair();
                 break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
@@ -151,10 +150,21 @@ public class RepairDetailActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         repair.setId(id);
                         rc.Delete(repair);
-                        newRepair();
+                        finish();
                         Toast.makeText(RepairDetailActivity.this, "Deleted Repair", Toast.LENGTH_LONG).show();
                     }})
                 .setNegativeButton(android.R.string.no, null).show();
+    }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putLong("id", id);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fetchRepair();
     }
 
 }

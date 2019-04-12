@@ -73,7 +73,6 @@ public class ContactDetailActivity extends AppCompatActivity {
                 break;
             case R.id.action_delete:
                 deleteContact();
-                newContact();
                 break;
             case R.id.add_address:
                 launch_address();
@@ -145,6 +144,10 @@ public class ContactDetailActivity extends AppCompatActivity {
         last_name_input = findViewById(R.id.last_name_input);
         middle_initial_input = findViewById(R.id.middle_initial_input);
         contact_address_spinner = findViewById(R.id.contact_address_spinner);
+        ac = new AddressController(getApplicationContext());
+        addresses = ac.getAll();
+        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
+        contact_address_spinner.setAdapter(addyAdapter);
         mobile_phone_input = findViewById(R.id.mobile_phone_input);
         work_phone_input = findViewById((R.id.work_phone_input));
         email_input = findViewById((R.id.email_input));
@@ -154,8 +157,8 @@ public class ContactDetailActivity extends AppCompatActivity {
         is_broker_checkbox = findViewById(R.id.broker_checkbox);
         licesnseNo = findViewById(R.id.license_input);
 
-        validator.addValidation(mobile_phone_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
-        validator.addValidation(work_phone_input, "^(0|[1-9][0-9]*)$", "Numeric Only");
+        validator.addValidation(mobile_phone_input, "^[0-9]+[0-9]*$", "Numeric Only");
+        validator.addValidation(work_phone_input, "^[0-9]+[0-9]*$", "Numeric Only");
     }
 
     private void newContact(){
@@ -175,11 +178,6 @@ public class ContactDetailActivity extends AppCompatActivity {
 
     private void fetchContact(){
         id = contact.getId();
-
-        ac = new AddressController(getApplicationContext());
-        addresses = ac.getAll();
-        addyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, addresses);
-        contact_address_spinner.setAdapter(addyAdapter);
 
         first_name_input.setText(contact.getFirst_name());
         last_name_input.setText(contact.getLast_name());
@@ -238,10 +236,16 @@ public class ContactDetailActivity extends AppCompatActivity {
                 .setNegativeButton(android.R.string.no, null).show();
     }
 
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putLong("id", id);
+    }
+
+
     @Override
     public void onResume() {
         super.onResume();
-
+        getInputs();
         fetchContact();
     }
 

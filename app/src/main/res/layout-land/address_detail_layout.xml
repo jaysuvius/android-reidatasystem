@@ -3,155 +3,158 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/address1Label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="50dp"
-            android:text="Address"  />
+            <TextView
+                android:id="@+id/address1Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="50dp"
+                android:text="Address"  />
 
-        <EditText
-            android:id="@+id/address_1_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_toEndOf="@+id/address1Label"
-            android:layout_toRightOf="@+id/address1Label"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Address 1" />
+            <EditText
+                android:id="@+id/address_1_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_toEndOf="@+id/address1Label"
+                android:layout_toRightOf="@+id/address1Label"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Address 1" />
 
-        <TextView
-            android:id="@+id/address2Label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/address1Label"
-            android:layout_alignStart="@+id/address1Label"
-            android:layout_below="@+id/address1Label"
-            android:layout_marginTop="35dp"
-            android:text="Address2" />
+            <TextView
+                android:id="@+id/address2Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/address1Label"
+                android:layout_alignStart="@+id/address1Label"
+                android:layout_below="@+id/address1Label"
+                android:layout_marginTop="35dp"
+                android:text="Address2" />
 
-        <EditText
-            android:id="@+id/address_2_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_toEndOf="@+id/address2Label"
-            android:layout_toRightOf="@+id/address2Label"
-            android:layout_below="@+id/address_1_input"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Address 2" />
+            <EditText
+                android:id="@+id/address_2_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_toEndOf="@+id/address2Label"
+                android:layout_toRightOf="@+id/address2Label"
+                android:layout_below="@+id/address_1_input"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Address 2" />
 
-        <TextView
-            android:id="@+id/cityLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/address1Label"
-            android:layout_alignStart="@+id/address1Label"
-            android:layout_below="@+id/address2Label"
-            android:layout_marginTop="40dp"
-            android:text="City" />
+            <TextView
+                android:id="@+id/cityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/address1Label"
+                android:layout_alignStart="@+id/address1Label"
+                android:layout_below="@+id/address2Label"
+                android:layout_marginTop="40dp"
+                android:text="City" />
 
-        <EditText
-            android:id="@+id/city_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_toEndOf="@+id/address2Label"
-            android:layout_toRightOf="@+id/cityLabel"
-            android:layout_below="@+id/address_2_input"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="City" />
+            <EditText
+                android:id="@+id/city_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_toEndOf="@+id/address2Label"
+                android:layout_toRightOf="@+id/cityLabel"
+                android:layout_below="@+id/address_2_input"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="City" />
 
-        <TextView
-            android:id="@+id/stateLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/address1Label"
-            android:layout_alignStart="@+id/address1Label"
-            android:layout_below="@+id/cityLabel"
-            android:layout_marginTop="45dp"
-            android:text="State" />
+            <TextView
+                android:id="@+id/stateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/address1Label"
+                android:layout_alignStart="@+id/address1Label"
+                android:layout_below="@+id/cityLabel"
+                android:layout_marginTop="45dp"
+                android:text="State" />
 
-        <EditText
-            android:id="@+id/state_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_toEndOf="@+id/address2Label"
-            android:layout_toRightOf="@+id/stateLabel"
-            android:layout_below="@+id/city_input"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="State" />
+            <EditText
+                android:id="@+id/state_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_toEndOf="@+id/address2Label"
+                android:layout_toRightOf="@+id/stateLabel"
+                android:layout_below="@+id/city_input"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="State" />
 
-        <TextView
-            android:id="@+id/zipLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/address1Label"
-            android:layout_alignStart="@+id/address1Label"
-            android:layout_below="@+id/stateLabel"
-            android:layout_marginTop="35dp"
-            android:text="Zip" />
+            <TextView
+                android:id="@+id/zipLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/address1Label"
+                android:layout_alignStart="@+id/address1Label"
+                android:layout_below="@+id/stateLabel"
+                android:layout_marginTop="35dp"
+                android:text="Zip" />
 
-        <EditText
-            android:id="@+id/zip_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_toEndOf="@+id/address2Label"
-            android:layout_toRightOf="@+id/zipLabel"
-            android:layout_below="@+id/state_input"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Zip" />
+            <EditText
+                android:id="@+id/zip_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_toEndOf="@+id/address2Label"
+                android:layout_toRightOf="@+id/zipLabel"
+                android:layout_below="@+id/state_input"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Zip" />
 
-        <TextView
-            android:id="@+id/countyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/address1Label"
-            android:layout_alignStart="@+id/address1Label"
-            android:layout_below="@+id/zipLabel"
-            android:layout_marginTop="45dp"
-            android:text="County" />
+            <TextView
+                android:id="@+id/countyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/address1Label"
+                android:layout_alignStart="@+id/address1Label"
+                android:layout_below="@+id/zipLabel"
+                android:layout_marginTop="45dp"
+                android:text="County" />
 
-        <EditText
-            android:id="@+id/county_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_toEndOf="@+id/address2Label"
-            android:layout_toRightOf="@+id/countyLabel"
-            android:layout_below="@+id/zip_input"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="County" />
+            <EditText
+                android:id="@+id/county_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_toEndOf="@+id/address2Label"
+                android:layout_toRightOf="@+id/countyLabel"
+                android:layout_below="@+id/zip_input"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="County" />
 
-    </RelativeLayout>
-
+        </RelativeLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -37,5 +37,5 @@
     <string name="title_activity_property_report">PropertyReport</string>
     <string name="title_activity_units">UnitsActivity</string>
     <string name="title_activity_repairs">RepairsActivity</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Rei Data System</string>
 </resources>

@@ -52,7 +52,6 @@ public class AddressDetailActivity extends AppCompatActivity {
                 break;
             case R.id.action_delete:
                 deleteAddress();
-                newAddress();
                 break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
@@ -140,6 +139,11 @@ public class AddressDetailActivity extends AppCompatActivity {
 
     }
 
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putLong("id", id);
+    }
+
     private void deleteAddress(){
         new AlertDialog.Builder(this)
                 .setTitle("Confirm")
@@ -150,7 +154,7 @@ public class AddressDetailActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         address.setId(id);
                         ac.Delete(address);
-                        newAddress();
+                        finish();
                         Toast.makeText(AddressDetailActivity.this, "Deleted Address", Toast.LENGTH_LONG).show();
                     }})
                 .setNegativeButton(android.R.string.no, null).show();

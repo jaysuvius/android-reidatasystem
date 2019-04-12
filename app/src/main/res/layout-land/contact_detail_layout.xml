@@ -86,52 +86,21 @@
                 android:inputType="textPersonName"
                 android:text="Middle" />
 
-            <TextView
-                android:id="@+id/contactAddressLabel"
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/contact_address_spinner"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/middleInitialLabel"
-                android:layout_alignStart="@+id/firstNameLabel"
-                android:layout_alignLeft="@+id/firstNameLabel"
-                android:layout_marginTop="30dp"
-                android:text="Address" />
-
-            <Button
-                android:id="@+id/select_contact_address_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/middle_initial_input"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/contactAddressLabel"
-                android:onClick="launch_contact_adresses_activity"
-                android:text="Select Address" />
-
-            <TextView
-                android:id="@+id/contactAddress1Label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/contactAddressLabel"
-                android:layout_alignStart="@+id/firstNameLabel"
-                android:layout_alignLeft="@+id/firstNameLabel"
-                android:layout_marginTop="40dp"
-                android:text="Address" />
-
-            <TextView
-                android:id="@+id/contactAddressText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/select_contact_address_button"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/contactAddress1Label"
-                android:text="Address" />
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:paddingTop="15dp" />
 
             <TextView
                 android:id="@+id/mobilePhoneLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/contactAddress1Label"
+                android:layout_below="@+id/contact_address_spinner"
                 android:layout_alignStart="@+id/firstNameLabel"
                 android:layout_alignLeft="@+id/firstNameLabel"
                 android:layout_marginTop="35dp"
@@ -141,13 +110,13 @@
                 android:id="@+id/mobile_phone_input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/contactAddressText"
+                android:layout_below="@+id/contact_address_spinner"
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/mobilePhoneLabel"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number|phone"
                 android:text="Mobile Phone" />
 
             <TextView
@@ -170,7 +139,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/workPhoneLabel"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:text="Work Phone" />
 
             <TextView
@@ -193,7 +162,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/emailLabel"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:text="Email" />
 
             <CheckBox

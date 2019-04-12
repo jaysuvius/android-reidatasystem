@@ -60,7 +60,6 @@ public class UnitDetailActivity extends AppCompatActivity {
                 break;
             case R.id.action_delete:
                 deleteUnit();
-                newUnit();
                 break;
             case android.R.id.home:
                 Intent intent = NavUtils.getParentActivityIntent(this);
@@ -105,13 +104,13 @@ public class UnitDetailActivity extends AppCompatActivity {
     private void getInputs(){
          unit_number_input = findViewById(R.id.unit_number_input);
          sq_ft_input = findViewById(R.id.unit_sqft_input);
-         validator.addValidation(sq_ft_input, "^(0|[1-9][0-9]*)$", "Numeric");
+         validator.addValidation(sq_ft_input, "^[0-9]+[0-9]*$", "Numeric");
          bedroom_count_intput = findViewById(R.id.bed_count_input);
-         validator.addValidation(bedroom_count_intput, "^(0|[1-9][0-9]*)$", "Numeric");
+         validator.addValidation(bedroom_count_intput, "^[0-9]+[0-9]*$", "Numeric");
          bathroom_count_input = findViewById(R.id.bath_count_input);
-         validator.addValidation(bathroom_count_input, "^(0|[1-9][0-9]*)$", "Numeric");
+         validator.addValidation(bathroom_count_input, "^[0-9]+[0-9]*$", "Numeric");
          rent_amount_input = findViewById(R.id.rent_amount_input);
-         validator.addValidation(rent_amount_input, "^(0|[1-9][0-9]*)$", "Numeric");
+         validator.addValidation(rent_amount_input, "^[0-9]+[0-9]*$", "Numeric");
          is_occupied_input = findViewById(R.id.is_unit__occupied_checkbox);
          special_features_input = findViewById(R.id.unit_special_features_input);
     }
@@ -167,10 +166,20 @@ public class UnitDetailActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             unit.setId(id);
                             uc.Delete(unit);
-                            newUnit();
+                            finish();
                             Toast.makeText(UnitDetailActivity.this, "Deleted Unit", Toast.LENGTH_LONG).show();
                         }})
                     .setNegativeButton(android.R.string.no, null).show();
         }
 
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putLong("id", id);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fetchUnit();
+    }
 }

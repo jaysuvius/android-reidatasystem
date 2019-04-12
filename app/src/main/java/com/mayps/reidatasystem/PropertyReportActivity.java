@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
@@ -37,9 +38,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Queue;
 
 public class PropertyReportActivity extends AppCompatActivity {
 
@@ -106,34 +109,42 @@ public class PropertyReportActivity extends AppCompatActivity {
                 finish();
             }
 
+            List<View> views = new ArrayList<>();
             for(Property p : properties){
-                PdfDocument.Page page = document.startPage(pageNo);
-
                 View content = getContentView(properties.get(pageNo));
+                views.add(content);
+            }
 
-                int measureWidth = View.MeasureSpec.makeMeasureSpec(page.getCanvas().getWidth(), View.MeasureSpec.EXACTLY);
-                int measuredHeight = View.MeasureSpec.makeMeasureSpec(page.getCanvas().getHeight(), View.MeasureSpec.EXACTLY);
-                content.measure(measureWidth, measuredHeight);
-                content.layout(0, 0, page.getCanvas().getWidth(), page.getCanvas().getHeight());
+            for (View v : views){
+                PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(612, 792, 1).create();
+                PdfDocument.Page page = document.startPage(pageInfo);
 
-                content.draw(page.getCanvas());
+                // crate a page description
+
+                // create a new page from the PageInfo
+                v.draw(page.getCanvas());
 
                 document.finishPage(page);
 
 
                 pageNo++;
-
             }
 
-            OutputStream output = new FileOutputStream(myFile);
-            document.writeTo(output);
+            try {
+                OutputStream output = new FileOutputStream(myFile);
+                document.writeTo(output);
 
-            document.close();
+                document.close();
 
-            viewPdf(myFile);
+                viewPdf(myFile);
+
+                output.close();
+            } catch (IOException e) {
+                throw new RuntimeException("Error generating file", e);
+            }
 
         }
-        catch(IOException ex){
+        catch(Exception ex){
             Log.i("Export Pdf", "Pdf failed");
         }
         finish();
